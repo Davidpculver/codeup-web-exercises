@@ -90,11 +90,10 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * user to your `analyzeColor` function. Alert the return value from your
  * function to show it to the user.
  */
-// var yourFavoriteColor = prompt("What is your favorite color?");
+// var yourFavoriteColor = prompt("What is your favorite color?").toLowerCase();
 //
 // function analyzeColor(color) {
-//     var compareColor = color.toLowerCase();
-//     switch (compareColor) {
+//         switch (color) {
 //         case "blue":
 //             alert ("Blue is the color of the sky");
 //             break;
@@ -111,6 +110,9 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 // }
 //
 // analyzeColor(yourFavoriteColor);
+
+// **Didnt need to rewrite the above code: Could have called : alert(analyxeColor(yourFavoriteColor)); after declaring yourFavoriteColor var
+
 /* ########################################################################## */
 
 /**
@@ -135,25 +137,27 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 
 // function calculateTotal(luckyNumber, totalPrice) {
 //     if (luckyNumber === 0){
-//         return totalprice;
+//         return totalPrice;
 //     } else if (luckyNumber === 1){
-//         var luckyNumber1 = totalPrice - (totalPrice * .10);
+//         var luckyNumber1 = (totalPrice - (totalPrice * .10)).toFixed(2);
 //         return luckyNumber1;
 //     } else if (luckyNumber === 2){
-//         var luckyNumber2 = totalPrice - (totalPrice * .25);
+//         var luckyNumber2 = (totalPrice - (totalPrice * .25)).toFixed(2);
 //         return luckyNumber2;
 //     } else if (luckyNumber === 3){
-//         var luckyNumber3 = totalPrice - (totalPrice * .35);
+//         var luckyNumber3 = (totalPrice - (totalPrice * .35)).toFixed(2);
 //         return luckyNumber3;
 //     } else if (luckyNumber === 4){
-//         var luckyNumber4 = totalPrice - (totalPrice * .50);
+//         var luckyNumber4 = (totalPrice - (totalPrice * .50)).toFixed(2);
 //         return luckyNumber4;
 //     } else if (luckyNumber === 5){
 //         return 0;
+//     } else {
+//          return totalPrice;
 //     }
 // }
-
-//console.log(calculateTotal(5, 150));
+//
+// console.log(calculateTotal(1, 150.42));
 
 
 /**
@@ -165,26 +169,26 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  */
 // Generate a random number between 0 and 6
 // var luckyNumber = Math.floor(Math.random() * 6);
-// var yourTotal = prompt("What is your items full price?");
-// function calculateTotal(yourLuckyNumber, totalPrice) {
-//     if (yourLuckyNumber === 0){
-//         return "Your lucky number is 0. You're a loser, you do not receive a discount. You pay $" + totalPrice + " sucka.";
-//     } else if (yourLuckyNumber === 1){
+// var yourTotal = parseFloat(prompt("What is your items full price?"));
+// function calculateTotal(luckyNumber, totalPrice) {
+//     if (luckyNumber === 0){
+//         alert("Your lucky number is 0. You're a loser, you do not receive a discount. You pay $" + totalPrice + " sucka.");
+//     } else if (luckyNumber === 1){
 //         var luckyNumber1 = totalPrice - (totalPrice * .10);
-//         return "Your lucky number is 1. Your final price is: $" + luckyNumber1 + ". Have a great day!"
+//         alert("Your lucky number is 1. Your final price is: $" + luckyNumber1 + ". Have a great day!");
 //     } else if (luckyNumber === 2){
 //         var luckyNumber2 = totalPrice - (totalPrice * .25);
-//         return "Your lucky number is 2. Your final price is: $" + luckyNumber2 + ". Have a great day!"
+//         alert("Your lucky number is 2. Your final price is: $" + luckyNumber2 + ". Have a great day!");
 //     } else if (luckyNumber === 3){
 //         var luckyNumber3 = totalPrice - (totalPrice * .35);
-//         return "Your lucky number is 3. Your final price is: $" + luckyNumber3 + ". Have a great day!"
+//         alert("Your lucky number is 3. Your final price is: $" + luckyNumber3 + ". Have a great day!");
 //     } else if (luckyNumber === 4){
 //         var luckyNumber4 = totalPrice - (totalPrice * .50);
-//         return "Your lucky number is 4. Your final price is: $" + luckyNumber4 + ". Have a great day!"
+//         alert("Your lucky number is 4. Your final price is: $" + luckyNumber4 + ". Have a great day!");
 //     } else if (luckyNumber === 5){
-//         return "Your lucky number is 5. Your entire purchase is free!! You lucky dog.";
+//         alert("Your lucky number is 5. Your entire purchase is free!! You lucky dog.");
 //     } else {
-//         return "You just got caught stealing, your going to jail!";
+//         alert("You just got caught stealing, your going to jail!");
 //     }
 // }
 //
@@ -206,40 +210,90 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
  * Can you refactor your code to use functions?
  * HINT: The way we prompt for a value could be improved
  */
+//
+// function analyzeNumber() {
+//     var enterANumber = confirm("Would you like to enter a number?")
+//     if (enterANumber === true){
+//     var enteredNumber = parseFloat(prompt("Please enter a number."));
+//     if(isNaN(enteredNumber)){
+//         alert("You did not enter a number.");
+//     } else {
+//         if (enteredNumber % 2 === 0) {
+//             var evenPlus = (enteredNumber + 100);
+//             if(evenPlus >= 0){
+//                 alert("Your number is even and positive! " + enteredNumber + " plus 100 equals " + evenPlus + ".");
+//             } else {
+//                 alert("Your number is even and negative! " + enteredNumber + " plus 100 equals " + evenPlus + ".");
+//             }
+//         } else {
+//             var oddPlus = (enteredNumber + 100);
+//             if(oddPlus > 0){
+//                 alert("Your number is odd and positive! " + enteredNumber + " plus 100 equals " + oddPlus + ".");
+//             } else {
+//                 alert("Your number is odd and negative! " + enteredNumber + " plus 100 equals " + oddPlus + ".");
+//             }
+//         }
+//     }
+//     } else {
+//         alert("You chose not to enter a number. Goodbye.");
+//     }
+// }
+// analyzeNumber();
+//
+//
+//
+//***** Instructors example
 
-function analyzeNumber() {
-    var enterANumber = confirm("Would you like to enter a number?")
-    if (enterANumber === true){
-    var enteredNumber = parseFloat(prompt("Please enter a number."));
-    if(isNaN(enteredNumber)){
-        alert("You did not enter a number.");
-    } else {
-        if (enteredNumber % 2 === 0) {
-            var evenPlus = (enteredNumber + 100);
-            if(evenPlus >= 0){
-                alert("Your number is even and positive! " + enteredNumber + " plus 100 equals " + evenPlus + ".");
-            } else {
-                alert("Your number is even and negative! " + enteredNumber + " plus 100 equals " + evenPlus + ".");
-            }
-        } else {
-            var oddPlus = (enteredNumber + 100);
-            if(oddPlus > 0){
-                alert("Your number is odd and positive! " + enteredNumber + " plus 100 equals " + oddPlus + ".");
-            } else {
-                alert("Your number is odd and negative! " + enteredNumber + " plus 100 equals " + oddPlus + ".");
-            }
-        }
-    }
-    } else {
-        alert("You chose not to enter a number. Goodbye.");
-    }
+//var participate = confirm("Would you like to enter a number?");
+//
+// if (participate){
+//     var userNumber = parseFloat(prompt("please enter a number"));
+//     if (isNaN(userNumber)){
+//         alert("You did not enter a valid number.");
+//     } else {
+//         if (userNumber % 2 === 0){
+//             alert("Your number is even.");
+//         } else {
+//             alert("Your number is odd.");
+//         }
+//         if (userNumber > 0){
+//             alert("Your number is positive.")
+//         } else {
+//             alert("Your number is negative.")
+//         }
+//         alert(userNumber + 100 + " is what your number plus 100 equals.");
+//     }
+// } else {
+//     alert("Ok, you didnt want to enter a number. Bye.");
+//}
+
+// **** Shorter and BETTER way:
+var participate = confirm("Would you like to enter a number?");
+var numberEntry;
+function isOddOrEven(numberEntry){
+    return (numberEntry % 2 === 0) ? "This number is even." : "This number is odd";
 }
-analyzeNumber();
 
+function isNegativeOrPositive(numberEntry) {
+    return (numberEntry > 0) ? "This number is positive." : "This number is negative.";
+}
 
+function plus100(numberEntry) {
+    return "Your number plus 100 is " + (parseFloat(numberEntry) + 100);
+}
 
-
-
+if(participate) {
+    numberEntry = prompt("Please enter a number.");
+    if (isNaN(numberEntry)){
+        alert("Sorry, what you entered was not a number.");
+    } else {
+        alert(isOddOrEven(numberEntry));
+        alert(isNegativeOrPositive(numberEntry));
+        alert(plus100(numberEntry));
+    }
+} else {
+    alert("You did not want to enter a number. Bye");
+}
 
 
 
