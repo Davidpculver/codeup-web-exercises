@@ -49,18 +49,41 @@
 // Do while loop
 // only {} around the block of "do" code
 
-var number = Math.floor(Math.random() * 6) + 1;
-var guess;
+// var number = Math.floor(Math.random() * 6) + 1;
+// var guess;
+//
+// do {
+//     guess = parseFloat(prompt("Enter a number between 1 and 6"));
+// } while(guess !== number);
+//
+// alert("Your guess of " + guess + " matches the number " + number + "!");
 
-do {
-    guess = parseFloat(prompt("Enter a number between 1 and 6"));
-} while(guess !== number);
+// FOR loops - most common in programming
+// short hand for while loops. For example:
+// var count = 100;
+// while (count >= 0){
+//     console.log(count);
+//     count = count -1;
+// }
 
-alert("Your guess of " + guess + " matches the number " + number + "!");
+// var count = 0;
+// while (count <= 100){
+//     console.log(count);
+//     count = count + 1;
+// }
+
+// after the block runs, the increment happens.
+// var count;
+// for (count = 0; count <= 100; count = count +1){
+//     console.log(count);
+// }
 
 
+// often use i for the variable
 
-
+for (var i = 0; i<=100; i++ ){
+    console.log(i);
+}
 
 
 
