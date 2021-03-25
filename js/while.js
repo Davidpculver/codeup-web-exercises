@@ -7,3 +7,5 @@ while (counter < 16){
     console.log(number);
     counter++;
 }
+
+//testing git push
