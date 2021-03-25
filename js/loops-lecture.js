@@ -28,23 +28,38 @@
 // tell the user how to end the program (sentinel value)
 // loop back around and do again until user tells to stop
 
-var priceOfItem = parseFloat(prompt("Enter the price of your first item."));
-alert("The price of your item was " + priceOfItem);
-// create accumulator variable
-var totalCost = priceOfItem;
-// without userInput, infinate loop since parsefloat, never able to return STOP
-var userInput = "";
-// create a sentinel value
-while(userInput !== "STOP") {
-    userInput = (prompt("Enter the price of your next item. \r\n\ Enter STOP when you are done."));
-    if(userInput === "STOP"){
-        alert("Your final price is: $" + totalCost.toFixed(2))
-    } else {
-        priceOfItem = parseFloat(userInput);
-        totalCost = totalCost + priceOfItem;
-        alert("Your total is now " + totalCost.toFixed(2));
-    }
-}
+// var priceOfItem = parseFloat(prompt("Enter the price of your first item."));
+// alert("The price of your item was " + priceOfItem);
+// // create accumulator variable
+// var totalCost = priceOfItem;
+// // without userInput, infinate loop since parsefloat, never able to return STOP
+// var userInput = "";
+// // create a sentinel value
+// while(userInput !== "STOP") {
+//     userInput = (prompt("Enter the price of your next item. \r\n\ Enter STOP when you are done."));
+//     if(userInput === "STOP"){
+//         alert("Your final price is: $" + totalCost.toFixed(2))
+//     } else {
+//         priceOfItem = parseFloat(userInput);
+//         totalCost = totalCost + priceOfItem;
+//         alert("Your total is now " + totalCost.toFixed(2));
+//     }
+// }
+
+// Do while loop
+// only {} around the block of "do" code
+
+var number = Math.floor(Math.random() * 6) + 1;
+var guess;
+
+do {
+    guess = parseFloat(prompt("Enter a number between 1 and 6"));
+} while(guess !== number);
+
+alert("Your guess of " + guess + " matches the number " + number + "!");
+
+
+
 
 
 
