@@ -29,11 +29,6 @@
 
 // Exercise 4;
 
-// for (var i = 1; i < 10; i++) {
-//     for (var j = 1; j <= i; j++) {
-//         console.log(i);
-//     }
-// }
 // Trying to understand nested loops
 // for (var i = 1; i < 10; i++) {
 //     for (var j = 1; j <= i; j++) {
@@ -41,15 +36,22 @@
 //     }
 // }
 
-// Exercise 5
-for (var i = 100; i > 0; i -= 5){
-    console.log(i);
+
+
+var string = "";
+for (var i = 1; i <= 9; i++) {
+    for (var j = 0; j < i; j++) {
+        string = string + i;
+    }
+    string = string + "\n";
 }
+console.log(string);
+// An empty string forces Javascript to interpret the operator + as string concatenation (joining strings), rather than numerical addition.
 
-
-
-
-
+// Exercise 5
+// for (var i = 100; i > 0; i -= 5){
+//     console.log(i);
+// }
 
 
 
