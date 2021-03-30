@@ -22,6 +22,8 @@ var names = ["David", "Sarah", "Joe", "Riley"];
 // console.log(names[1]);
 // console.log(names[2]);
 // console.log(names[3]);
+
+
     /**
      * TODO:
      * Write some code that uses a for loop to log every item in the names
@@ -34,9 +36,9 @@ var names = ["David", "Sarah", "Joe", "Riley"];
      * TODO:
      * Refactor your above code to use a `forEach` loop
      */
-// names.forEach(function (name){
-//     console.log(name);
-// })
+names.forEach(function(name){
+    console.log(name);
+})
     /**
      * TODO:
      * Create the following three functions, each will accept an array and
@@ -64,7 +66,6 @@ console.log("The second element in the array names is: " +second(names));
 function last(array){
     return array[array.length-1];
 }
-
-    console.log("The last element in the array names is: " + last(names));
+console.log("The last element in the array names is: " + last(names));
 
 })();

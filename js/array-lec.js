@@ -96,6 +96,138 @@ var falsyValues = [false, null, "", 0, undefined, NaN];
 // })
 
 
+// *** Manipulating Arrays
+
+// Update whats inside rather than reassigning
+// May be interacting with data where we wont be able to see it directly.
+var cheeses = ["Muenster", "kraft", "pepper Jack", "string"];
+
+cheeses.push("cheddar"); //adds to end of array
+
+function logTheCheeses() {
+    cheeses.forEach(function (cheese) {
+        console.log(cheese)
+    })
+}
+
+// logTheCheeses();
+
+cheeses.unshift("Gouda"); //adds to the beginning
+// logTheCheeses();
+
+
+//can add more than one argument at a time.
+cheeses.push("White cheddar", "Colby jack");
+cheeses.unshift("Red windsor", "ragstone");
+// logTheCheeses();
+
+
+// To remove elements (only one at a time)
+cheeses.shift(); // removes first element of array - takes no argument
+
+cheeses.pop(); // removes the last element of array
+
+// will return the value that was removed and save it to variable:
+var removedCheese = cheeses.shift();
+// console.log(removedCheese + " was removed from the array");
+cheeses.push(removedCheese);
+
+//find the index in array
+// console.log(cheeses.indexOf("kraft"));
+
+var myFaveNumbers = [17, 34, 22, 17, 19, 17];
+// // console.log(myFaveNumbers.indexOf(17));
+// // console.log(myFaveNumbers.lastIndexOf(17));
+//
+// // Slicing: return value from either one or two arguments.
+//
+// //use +1 to include "string" since zero indexed
+// // does not remove from the array. By assigning return from the slice method to variable, can call on its value.
+//
+// var myFaveCheeses = cheeses.slice(cheeses.indexOf("kraft"), cheeses.indexOf("string")+1)
+//
+// var otherCheeses = cheeses.slice(3); //from index 7 and returns array to the end.
+// // logTheCheeses();
+// // console.log(myFaveCheeses);
+// // console.log(otherCheeses);
+//
+//
+// // copy of array by using slice with no arguments.
+// function copyOfArray(array) {
+//     return array.slice();
+// }
+//
+// //rand new array, does not affect cheeses variable.
+// var reversedCheeses = copyOfArray(cheeses).reverse();
+
+// logTheCheeses();
+// console.log("////");
+// reversedCheeses.forEach(function (cheese) {
+//     console.log(cheese);
+// })
+
+//typeof [1, 2, 3] returns "object". unlike primitive data type, if you affect one, you affect the other: both variable refer to the same object.
+
+// var reversedCheeses = cheeses;
+// reversedCheeses.reverse();
+
+// Sort method:
+
+// cheeses.sort();
+// logTheCheeses();
+
+//sort method returns the array that it sorted - do not need to set to a variable modifies it immediately. Therefore able to chain another method to it.
+// console.log(myFaveNumbers.sort().reverse());
+
+//best to use .sort() with same data time
+//console.log([6, 19, 55, "Walter", "jesse", 22].sort());
+
+
+// To split string into an array so you can iterate through it.
+var csvNames = "David, Javier, Jay, Cody the duck";
+var names = csvNames.split(",");
+console.log(names);
+
+// reverses elements and joins the array into string.
+csvNames = names.reverse().join("**"); //can join using anything: if nothing, default joins with commas.
+console.log(csvNames);
+
+// joining two arrays together and makes a copy of the arrays. does not affect alphaTeam or goldTeam
+var alphaTeam = ["David", "Jay", "javier"];
+var goldTeam = ["Winston", "Riley", "Bandit"];
+
+var staff = alphaTeam.concat(goldTeam);
+
+// if:  var staff = alphaTeam + goldTeam; it concatenates as a string rather than array.
+
+// console.log(alphaTeam);
+// console.log(goldTeam);
+// console.log(staff);
+
+
+//does not affect the cheeses array, just returns a copy with element removed.
+function removeAtIndex(array, index) {
+    var arr1 = array.slice(0, index);
+    var arr2 = array.slice(index + 1); //to include the value
+    return arr1.concat(arr2);
+}
+
+console.log(cheeses);
+console.log(removeAtIndex(cheeses, cheeses.indexOf("kraft")));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
