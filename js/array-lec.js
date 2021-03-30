@@ -216,7 +216,7 @@ console.log(cheeses);
 console.log(removeAtIndex(cheeses, cheeses.indexOf("kraft")));
 
 
-
+// ****Remember what they are returning. Some return the length of array, others return the modified array.
 
 
 
