@@ -28,8 +28,17 @@
      */
 
     person.sayHello = function () {
-        return "Hello from " + person.firstName + " " + person.lastName + "!"
+        return "Hello from " + this.firstName + " " + this.lastName + "!"
     }
+
+    //instructors example:
+    // var person = {
+    //     firstName: "David",
+    //     lastName: "culver",
+    //     sayHello: function () {
+    //         console.log("Hello from " + this.firstName + " " + this.lastName + "!")
+    //     }
+    // }
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -53,11 +62,26 @@
 
    shoppers.forEach(function (purchase) {
         if (purchase.amount > 200){
-         console.log(purchase.name + ", the amount before your discount was: $" + purchase.amount + ". After the discount your final total is: $" +(purchase.amount - (purchase.amount * .12)));
+         console.log(purchase.name + ", the amount before your discount was: $" + purchase.amount.toFixed(2) + ". After the discount your final total is: $" +(purchase.amount.toFixed(2) - (purchase.amount.toFixed(2) * .12)));
         } else {
-            console.log(purchase.name + ", you get no discount. Your purchase price is: $" + purchase.amount);
+            console.log(purchase.name + ", you get no discount. Your purchase price is: $" + purchase.amount.toFixed(2));
         }
-    })
+    });
+
+    //instructors example:
+    // shoppers.forEach(function (shopper) {
+    //     var shopperName = shopper.name;
+    //     var amountSpent = "$" + shopper.amount.toFixed(2);
+    //     var discount = 0
+    //     if (shopper.amount > 200){
+    //         discount = shopper.amount * .12;
+    //     }
+    //     var amountAfter = shopper.amount - discount;
+    //     amountAfter = "$" + amountAfter.toFixed(2);
+    //     discount = "$" + discount.toFixed(2);
+    //     var message = shopperName + " spent " + amountSpent + ". Their discount is " + discount + ". The amount after discount is $" + amountAfter + ".";
+    //     console.log(message);
+    // });
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -140,6 +164,20 @@ var books = [
     //     console.log("Book # " + (books.indexOf(book) + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
     // })
 
+    // books.forEach(function (book, index) {
+    //     var bookNumber = index + 1;
+    //     console.log("Book # "+ bookNumber);
+    //     console.log("Title: " + book.title);
+    //     console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+    // });
+
+    // for(var i = 0; i < books.length; i++){
+    //     var bookNumber = i + 1;
+    //     console.log("Book # "+ bookNumber);
+    //     console.log("Title: " + books[i].title);
+    //     console.log("Author: " + books[i].author.firstName + " " + books[i].author.lastName);
+    // }
+
     /**
      * Bonus:
      * - Create a function named `createBook` that accepts a title and author
@@ -151,30 +189,59 @@ var books = [
      *   `showBookInfo` function.
      */
 
-    function createBook(title, authorFirst, authorLast) {
-        books.push({
+    // function createBook(title, authorFirst, authorLast) {
+    //     books.push({
+    //         title: title,
+    //         author: {
+    //             firstName: authorFirst,
+    //             lastName: authorLast
+    //         }
+    //     });
+    // }
+
+    // createBook("A Brief History of Time", "Stephen", "Hawking");
+
+    // function showBookInfo(){
+    //     books.forEach(function(book) {
+    //         console.log("Book # " + (books.indexOf(book) + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
+    //     })
+    // }
+    //
+    // createBook("The Salmon of Doubt", "Douglas", "Adams");
+    // showBookInfo();
+
+
+    //instructor example
+    function createBook(title, author) {
+        var nameArray = author.split(" ");
+        var firstName = nameArray[0];
+        var lastName = nameArray[1];
+        return {
             title: title,
             author: {
-                firstName: authorFirst,
-                lastName: authorLast
+                firstName: firstName,
+                lastName: lastName
             }
-        });
+        }
     }
 
-    createBook("A Brief History of Time", "Stephen", "Hawking");
+    books.push(createBook("My book", "David Culver"));
+
+
+    function showBookInfo(book, bookNumber) {
+            console.log("Book # " + (bookNumber + 1));
+            console.log("Title: " + book.title);
+            console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+        }
+
+    books.forEach(showBookInfo);
+
 
     // function showBookInfo(book) {
     //     console.log("Book # " + (books.indexOf(book) + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
     // }
 
-   function showBookInfo(){
-       books.forEach(function(book) {
-           console.log("Book # " + (books.indexOf(book) + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
-       })
-   }
 
-   createBook("The Salmon of Doubt", "Douglas", "Adams");
-   showBookInfo();
 
 
 })();
