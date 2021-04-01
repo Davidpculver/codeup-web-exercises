@@ -51,7 +51,7 @@
         {name: 'George', amount: 320}
     ];
 
-    var finalPrice = shoppers.forEach(function (purchase) {
+   shoppers.forEach(function (purchase) {
         if (purchase.amount > 200){
          console.log(purchase.name + ", the amount before your discount was: $" + purchase.amount + ". After the discount your final total is: $" +(purchase.amount - (purchase.amount * .12)));
         } else {
@@ -72,7 +72,43 @@
      * > console.log(books[0].author.lastName) // "Adams"
      */
 
-
+var books = [
+        {
+        title: "To Kill a Mockingbird",
+        author: {
+            firstName: "Harper",
+            lastName: "Lee"
+            }
+        },
+        {
+            title: "The Great Gatsby",
+            author: {
+                firstName: "F Scott",
+                lastName: "Fitzgerald"
+            }
+        },
+        {
+            title: "Things Fall Apart",
+            author: {
+                firstName: "Chinua",
+                lastName: "Achebe"
+            }
+        },
+        {
+            title: "Moby Dick",
+            author: {
+                firstName: "Herman",
+                lastName: "Melville"
+            }
+        },
+        {
+            title: "Hamlet",
+            author: {
+                firstName: "William",
+                lastName: "Shakespeare"
+            }
+        }
+    ]
 
 
     /**
@@ -99,6 +135,11 @@
      *      ---
      *      ...
      */
+
+    books.forEach(function (book) {
+        console.log("Book # " + (books.indexOf(book) + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
+
+    })
 
     /**
      * Bonus:
