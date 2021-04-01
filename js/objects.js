@@ -136,10 +136,9 @@ var books = [
      *      ...
      */
 
-    books.forEach(function (book) {
-        console.log("Book # " + (books.indexOf(book) + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
-
-    })
+    // books.forEach(function (book) {
+    //     console.log("Book # " + (books.indexOf(book) + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
+    // })
 
     /**
      * Bonus:
@@ -151,5 +150,31 @@ var books = [
      *   outputs the information described above. Refactor your loop to use your
      *   `showBookInfo` function.
      */
+
+    function createBook(title, authorFirst, authorLast) {
+        books.push({
+            title: title,
+            author: {
+                firstName: authorFirst,
+                lastName: authorLast
+            }
+        });
+    }
+
+    createBook("A Brief History of Time", "Stephen", "Hawking");
+
+    // function showBookInfo(book) {
+    //     console.log("Book # " + (books.indexOf(book) + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
+    // }
+
+   function showBookInfo(){
+       books.forEach(function(book) {
+           console.log("Book # " + (books.indexOf(book) + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
+       })
+   }
+
+   createBook("The Salmon of Doubt", "Douglas", "Adams");
+   showBookInfo();
+
 
 })();
