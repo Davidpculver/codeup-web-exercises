@@ -1,6 +1,6 @@
 (function() {
     "use strict";
-alert("hi")
+
     /**
      * TODO:
      * Create an object with firstName and lastName properties that are strings
@@ -12,6 +12,11 @@ alert("hi")
      *  > console.log(person.lastName) // "Sanchez"
      */
 
+    var person = {
+        firstName: "David",
+        lastName: "Culver"
+    }
+
     /**
      * TODO:
      * Add a sayHello method to the person object that returns a greeting using
@@ -21,6 +26,10 @@ alert("hi")
      * Example
      * > console.log(person.sayHello()) // "Hello from Rick Sanchez!"
      */
+
+    person.sayHello = function () {
+        return "Hello from " + person.firstName + " " + person.lastName + "!"
+    }
 
     /** TODO:
      * HEB has an offer for the shoppers that buy products amounting to
@@ -36,11 +45,19 @@ alert("hi")
      * and console.log the relevant messages for each person
      */
 
-    // var shoppers = [
-    //     {name: 'Cameron', amount: 180},
-    //     {name: 'Ryan', amount: 250},
-    //     {name: 'George', amount: 320}
-    // ];
+    var shoppers = [
+        {name: 'Cameron', amount: 180},
+        {name: 'Ryan', amount: 250},
+        {name: 'George', amount: 320}
+    ];
+
+    var finalPrice = shoppers.forEach(function (purchase) {
+        if (purchase.amount > 200){
+         console.log(purchase.name + ", the amount before your discount was: $" + purchase.amount + ". After the discount your final total is: $" +(purchase.amount - (purchase.amount * .12)));
+        } else {
+            console.log(purchase.name + ", you get no discount. Your purchase price is: $" + purchase.amount);
+        }
+    })
 
     /** TODO:
      * Create an array of objects that represent books and store it in a
@@ -54,6 +71,9 @@ alert("hi")
      * > console.log(books[0].author.firstName) // "Douglas"
      * > console.log(books[0].author.lastName) // "Adams"
      */
+
+
+
 
     /**
      * TODO:
