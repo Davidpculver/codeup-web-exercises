@@ -160,9 +160,9 @@ var books = [
      *      ...
      */
 
-    // books.forEach(function (book) {
-    //     console.log("Book # " + (books.indexOf(book) + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
-    // })
+    books.forEach(function (book) {
+        console.log("Book # " + (books.indexOf(book) + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
+    })
 
     // books.forEach(function (book, index) {
     //     var bookNumber = index + 1;
@@ -189,52 +189,52 @@ var books = [
      *   `showBookInfo` function.
      */
 
-    // function createBook(title, authorFirst, authorLast) {
-    //     books.push({
-    //         title: title,
-    //         author: {
-    //             firstName: authorFirst,
-    //             lastName: authorLast
-    //         }
-    //     });
-    // }
+    function createBook(title, authorFirst, authorLast) {
+        books.push({
+            title: title,
+            author: {
+                firstName: authorFirst,
+                lastName: authorLast
+            }
+        });
+    }
 
-    // createBook("A Brief History of Time", "Stephen", "Hawking");
+    createBook("A Brief History of Time", "Stephen", "Hawking");
 
-    // function showBookInfo(){
-    //     books.forEach(function(book) {
-    //         console.log("Book # " + (books.indexOf(book) + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
-    //     })
-    // }
+    function showBookInfo(){
+        books.forEach(function(book) {
+            console.log("Book # " + (books.indexOf(book) + 1) + "\nTitle: " + book.title + "\nAuthor: " + book.author.firstName + " " + book.author.lastName);
+        })
+    }
     //
-    // createBook("The Salmon of Doubt", "Douglas", "Adams");
-    // showBookInfo();
+    createBook("The Bible", "Jehovah", "God");
+    showBookInfo();
 
 
     //instructor example
-    function createBook(title, author) {
-        var nameArray = author.split(" ");
-        var firstName = nameArray[0];
-        var lastName = nameArray[1];
-        return {
-            title: title,
-            author: {
-                firstName: firstName,
-                lastName: lastName
-            }
-        }
-    }
-
-    books.push(createBook("My book", "David Culver"));
-
-
-    function showBookInfo(book, bookNumber) {
-            console.log("Book # " + (bookNumber + 1));
-            console.log("Title: " + book.title);
-            console.log("Author: " + book.author.firstName + " " + book.author.lastName);
-        }
-
-    books.forEach(showBookInfo);
+    // function createBook(title, author) {
+    //     var nameArray = author.split(" ");
+        // var firstName = nameArray[0];
+        // var lastName = nameArray[1];
+        // return {
+        //     title: title,
+        //     author: {
+        //         firstName: firstName,
+    //             lastName: lastName
+    //         }
+    //     }
+    // }
+    //
+    // books.push(createBook("My book", "David Culver"));
+    //
+    //
+    // function showBookInfo(book, bookNumber) {
+    //         console.log("Book # " + (bookNumber + 1));
+    //         console.log("Title: " + book.title);
+    //         console.log("Author: " + book.author.firstName + " " + book.author.lastName);
+    //     }
+    //
+    // books.forEach(showBookInfo);
 
 
     // function showBookInfo(book) {
