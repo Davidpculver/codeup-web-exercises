@@ -17,16 +17,16 @@
 
         <label for="username">Username</label>
         <!-- Inputs: different fields on form. Type: "text", "password". Represents based on name attribute.  Above input: Label element: uses "for" attribute - points to the "id" in input. Info sent with the request is sent using the value in "name" attribute, in query string. Want it to make sense to know what the info is.-->
-        <input id="username" name="username" type="text">
+        <input id="username" name="username" type="text" placeholder="Enter your username">
         <br>
 
         <label for="password">Password</label>
-        <input id="password" name="password" type="password">
+        <input id="password" name="password" type="password" placeholder="Enter your password">
         <br>
 
         <label for="body-text">Tell me about yourself.</label>
         <br>
-        <textarea id="body-text" name="body" cols="30" rows="10"></textarea>
+        <textarea id="body-text" name="body" cols="30" rows="10" placeholder="Tell me about yourself."></textarea>
         <br>
 
         <h3>What is the correct answer?</h3>
@@ -65,7 +65,18 @@
             <option value="dark">Dark Roast</option>
             <option value="espresso">Espresso Blend</option>
         </select>
+        <br>
 
+        <input name="newsletter" type="checkbox" checked><span>Would you like to sign up for our news letter?</span>
+        <br>
+        <!-- disabled does not get sent: Use hidden input instead if needed -->
+        <label for="nonactive">Ignore this</label>
+        <input id="nonactive" name="userId" type="text" disabled value="c-wd-sa">
+        <br>
+
+        <label for="nonactive"></label>
+        <input id="nonactive" name="userId" type="text" hidden value="c-wd-sa">
+        <br>
         <!-- submit button using input type="submit" : not very customizable.
         Better to use: <button type="submit">Can have button say anything</button>-->
         <input type="submit">
