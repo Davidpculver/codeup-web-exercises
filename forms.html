@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register With Us</title>
+</head>
+<body>
+    <h1>Welcome to Veridian Dynamics! Please sign up today!</h1>
+    <form method="POST" action="https://request-inspector.glitch.me/">
+        <label for="username">Please enter your username: </label>
+        <input id="username" name="username" type="text" placeholder="Username">
+        <br>
+        <label for="password">Please enter your password: </label>
+        <input id="password" name="password" type="password" placeholder="Password">
+        <br>
+        <label for="bio">Your bio:</label>
+        <br>
+        <textarea name="bio" id="bio" cols="30" rows="10" placeholder="Share a short description of yourself."></textarea>
+        <br>
+
+        <h3>How did you hear about us?</h3>
+
+        <input id="ref-B" name="referral" value="billboard" type="checkbox">
+        <label for="ref-B">Billboard</label>
+        <br>
+        <input id="ref-R" name="referral" value="radio" type="checkbox">
+        <label for="ref-R">Radio Advertisement</label>
+        <br>
+        <input id="ref-I" name="referral" value="internet" type="checkbox">
+        <label for="ref-I">Internet Advertisement</label>
+        <br>
+        <input id="ref-O" name="referral" value="other" type="checkbox">
+        <label for="ref-O">Other</label>
+        <br>
+
+        <h3>
+            <label for="browser">What browser are you using?</label>
+        </h3>
+        <select name="whichBrowser" id="browser">
+            <option value="chrome">Chrome</option>
+            <option value="firefox">Firefox</option>
+            <option value="safari">Safari</option>
+            <option value="other">Other</option>
+        </select>
+        <br>
+
+
+        <button type="submit">Submit form</button>
+    </form>
+</body>
+</html>
