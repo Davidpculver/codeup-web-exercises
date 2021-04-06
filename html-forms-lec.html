@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Forms Lecture</title>
+</head>
+<body>
+    <h1>Forms lecture</h1>
+    <h2>Exploring the ever present forms in HTML</h2>
+    <hr>
+    <!-- method: are we push or pull on "door of info"; POST - here is the info for you, do what you need. GET - expect info to be received, adds to query string. Query string: in address bar:
+    https://request-inspector.glitch.me/?username=DavidCulver&password=123456
+    After the question mark - values appended to QS.
+     Action: Where the info is being sent.
+     inputs return strings-->
+    <form method="POST" action="https://request-inspector.glitch.me/">
+
+        <label for="username">Username</label>
+        <!-- Inputs: different fields on form. Type: "text", "password". Represents based on name attribute.  Above input: Label element: uses "for" attribute - points to the "id" in input. Info sent with the request is sent using the value in "name" attribute, in query string. Want it to make sense to know what the info is.-->
+        <input id="username" name="username" type="text">
+        <br>
+
+        <label for="password">Password</label>
+        <input id="password" name="password" type="password">
+        <br>
+
+        <label for="body-text">Tell me about yourself.</label>
+        <br>
+        <textarea id="body-text" name="body" cols="30" rows="10"></textarea>
+        <br>
+
+        <h3>What is the correct answer?</h3>
+        <!-- radio button for one selection
+        have to assign value attribute to know the value of selection. Can use "wrong"/"correct" with the letters to show on backend to keep track of what they entered.
+        if nothing is selected, no info is passed along-->
+        <input name="multi-choice" id="choice-a" value="A" type="radio">
+        <label for="choice-a">A</label>
+        <br>
+        <input name="multi-choice" id="choice-b" value="B" type="radio">
+        <label for="choice-b">B</label>
+        <br>
+        <input name="multi-choice" id="choice-c" value="C" type="radio">
+        <label for="choice-c">C</label>
+        <br>
+        <input name="multi-choice" id="choice-d" value="D" type="radio">
+        <label for="choice-d">D</label>
+        <br>
+
+        <h3>How did you hear about us?</h3>
+        <!-- checkbox returns array -->
+        <label for="ad-bb">Billboard</label>
+        <input id="ad-bb" name="advertising" value="billboard" type="checkbox">
+        <label for="ad-yt">YouTube</label>
+        <input id="ad-yt" name="advertising" value="youtube" type="checkbox">
+        <label for="ad-np">Newspaper</label>
+        <input id="ad-np" name="advertising" value="newspaper" type="checkbox">
+        <br>
+
+        <h3>
+            <label for="coffee-preference">What kind of coffee do you like? </label>
+        </h3>
+        <select name="coffee_preference" id="coffee-preference">
+            <option value="light">Light Roast</option>
+            <option value="medium">Medium Roast</option>
+            <option value="dark">Dark Roast</option>
+            <option value="espresso">Espresso Blend</option>
+        </select>
+
+        <!-- submit button using input type="submit" : not very customizable.
+        Better to use: <button type="submit">Can have button say anything</button>-->
+        <input type="submit">
+    </form>
+
+</body>
+</html>
