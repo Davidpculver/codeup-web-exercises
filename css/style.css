@@ -1,3 +1,58 @@
+/*@font-face {*/
+/*    font-family: 'Architects Daughter';*/
+/*    src: url(fonts/ArchitectsDaughter-Regular.ttf);*/
+/*}*/
+
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
+
+body{
+    background-color: #ffeedd;
+    background-image: url("../img/whitebrickbackground.jpg");
+    background-repeat: repeat;
+    background-size: 50em;
+    font-family: Architects Daughter, cursive;
+    text-align: center;
+}
+
 .fancy-header{
     color: purple;
 }
+
+h2, h3 {
+    color: #016d92;
+    text-decoration: underline;
+}
+
+ul{
+    list-style: circle inside;
+}
+
+ol{
+    list-style: lower-roman inside;
+}
+
+table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td{
+    border: solid 3px black;
+    border-collapse: collapse;
+    padding: 10px;
+    text-align: center;
+}
+
+th{
+    font-size: 1.2em;
+}
+
+a:link{
+    color: green;
+}
+
+a:hover{
+    color: red;
+    font-size: 25px;
+}
+

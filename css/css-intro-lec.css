@@ -4,10 +4,8 @@
 /*    src: url(../fonts/name of file);*/
 /*}*/
 
-@font-face{
-    font-family: "roboto" ;
-    src: url(https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap)
-}
+/*for using a direct link use @import. From saved font use @font-face*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 body {
     font-family: 'roboto', 'Ubuntu', sans-serif;
