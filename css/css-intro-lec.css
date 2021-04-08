@@ -1,7 +1,41 @@
-.green {
-    color: green;
+body {
+    font-family: sans-serif;
+    background-color: aliceblue;
+    /*font-size: 16px; default font size is 16px*/
 }
 
-blockquote{
-    background: antiquewhite;
+h1 {
+    text-align: center;
+    color: darkblue;
+    font-size: 2.5em; /*same as 250%*/
+}
+
+h2, h3 {
+    color: #FD7924;
+}
+
+aside, em {
+    font-family: serif;
+}
+
+h1, .bottom-border{
+    border-bottom: 1px solid black;
+}
+
+ul{
+    list-style: square;
+}
+
+ol{
+    list-style: lower-roman;
+}
+
+q{
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/*not use id often, use classes. Can only have one element with one id - very specific*/
+#main-branding{
+    font-size: 1.1em;
 }
