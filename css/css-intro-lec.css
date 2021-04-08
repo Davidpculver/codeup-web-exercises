@@ -1,5 +1,16 @@
+/* can download and save in folder... connect this way, not have to link into each html file.
+@font-face {*/
+/*    font-family: 'Ubuntu';*/
+/*    src: url(../fonts/name of file);*/
+/*}*/
+
+@font-face{
+    font-family: "roboto" ;
+    src: url(https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap)
+}
+
 body {
-    font-family: sans-serif;
+    font-family: 'roboto', 'Ubuntu', sans-serif;
     background-color: aliceblue;
     /*font-size: 16px; default font size is 16px*/
 }
@@ -32,10 +43,36 @@ ol{
 
 q{
     font-weight: bold;
-    text-decoration: underline;
+    /*text-decoration: underline;*/
 }
 
-/*not use id often, use classes. Can only have one element with one id - very specific*/
+/*descendant selector all p's within section. if section with p's, or something else nested within the section: section>p = direct descendant, would not include the p's in the nested section*/
+/*section p {*/
+/*    background-color: bisque;*/
+/*}*/
+
+a:link{
+    color: green;
+}
+
+a:visited {
+    color: orange;
+}
+
+a:hover{
+    color: turquoise;
+}
+
+/*p::first-letter{*/
+/*    font-size: 2.5em;*/
+/*}*/
+
+
+/*.bottom-border:first-of-type{*/
+/*    border-bottom-width: 2px;*/
+/*}*/
+
+/*not use id often, use classes. Can only have one element with one id - very specific
 #main-branding{
     font-size: 1.1em;
-}
+}*/
