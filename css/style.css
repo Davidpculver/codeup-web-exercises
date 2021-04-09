@@ -9,7 +9,7 @@ body{
     background-color: #ffeedd;
     background-image: url("../img/whitebrickbackground.jpg");
     background-repeat: repeat;
-    background-size: 50em;
+    background-size: 1000px;
     font-family: Architects Daughter, cursive;
     text-align: center;
 }
@@ -45,6 +45,7 @@ table, th, td{
 
 th{
     font-size: 1.2em;
+    background-color: #FD7924;
 }
 
 a:link{
