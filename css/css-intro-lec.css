@@ -11,9 +11,9 @@ body {
     font-family: 'roboto', 'Ubuntu', sans-serif;
     background-color: aliceblue;
     /*font-size: 16px; default font size is 16px*/
-    background-image: url(../img/bordercollie.jpg);
-    background-repeat: no-repeat;
-    background-position: right;
+    /*background-image: url(../img/bordercollie.jpg);*/
+    /*background-repeat: no-repeat;*/
+    /*background-position: right;*/
 }
 
 h1 {

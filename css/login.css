@@ -61,7 +61,7 @@ fieldset {
     color: white;
     font-weight: bold;
     /* The border of this element should be 1px, and its color should be light grey */
-    border: 1px solid lightgray;
+    border: 1px solid lightgrey;
     background-color: #0fb784;
 }
 
@@ -76,7 +76,8 @@ fieldset {
     /* See the example at: https://developer.mozilla.org/en-US/docs/Web/CSS/calc */
     /* HINT: Calculate based on the padding of the `.btn` class */
     /* HINT: Examples are available at: https://glitch.com/~input-button-width */
-    width: calc(100% - 2px);
+    width: calc(100% - 4px);
+/*    on forms Chrome adds in padding of 2px; firefox adds in 3. can use border-width 2px to fix across browsers. can also (probably best): box-sizing: border-box; width: 100%;*/
 }
 
 
