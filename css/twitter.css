@@ -66,6 +66,9 @@ a {
 .profile-items {
     list-style-type: none;
     padding: 0;
+}
+
+.profile-entry {
     margin: .5em;
 }
 
@@ -104,7 +107,10 @@ a {
     background-color: var(--light-bg);
     padding: .5em;
     border-bottom: 1px solid var(--separator-color);
-    overflow: auto;
+    /*overflow: auto;*/
+/*    overflow: lets the parent element to flow around children.
+        Correct way to do this now is       display: flow-root;     */
+    display: flow-root;
 }
 
 
