@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Work+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Work Sans', sans-serif;
+}
+
+nav {
+    background-color: rgb(192, 192, 192);
+    display: flex;
+    align-items: center;
+}
+
+.links {
+    display: flex;
+    list-style: none;
+}
+
+a {
+    padding: .5em;
+    /*   no difference without inline-block??   */
+    display: inline-block;
+    text-decoration: none;
+}
+
+a:link {
+    color: black;
+}
+
+a:hover {
+    color: blue;
+}
+
+.logo {
+    font-size: 3em;
+    padding: .2em 0;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+img {
+    width: 15px;
+    padding-top: .3em;
+}
+
+.icons {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+/*img:hover {*/
+/*    width: 30px;*/
+/*}*/
+
+img:hover {
+    transition: 0.5s;
+    -webkit-transition: 0.70s;
+    -moz-transition: 0.70s;
+    -ms-transition: 0.70s;
+    -o-transition: 0.70s;
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+
