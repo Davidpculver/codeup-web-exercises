@@ -1,0 +1,20 @@
+.bg-pizza {
+    background-image: url("../img/pizza.png");
+    background-size: cover;
+}
+
+.opaque-bg {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.jumbotron {
+    text-align: center;
+}
+
+.badge {
+    margin-right: 5px;
+}
+
+.option {
+    width: 100% !important;
+}

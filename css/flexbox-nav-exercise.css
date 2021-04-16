@@ -22,7 +22,7 @@ nav {
 a {
     padding: .5em;
     /*   no difference without inline-block??   */
-    display: inline-block;
+    display: inline;
     text-decoration: none;
 }
 
