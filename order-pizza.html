@@ -28,15 +28,16 @@
                 </form>
             </li>
         </ul>
+        <i class="fas fa-user-plus"></i><p class="text-secondary">Sign up</p>
     </div>
 </nav>
 <main class="container">
-    <div class="container jumbotron jumbotron-fluid bg-pizza d-none d-md-block">
-        <div class="container opaque-bg">
-            <h1 class="display-4">Welcome To Pizza World!</h1>
-        </div>
+    <div class="jumbotron jumbotron-fluid bg-pizza d-none d-md-block">
+        <h1 class="display-4 bg-white">Welcome To Pizza World!</h1>
     </div>
     <h2>Build your own pizza!</h2>
+
+<!--    Nav tabs    -->
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item" role="presentation">
             <a class="nav-link active" id="size-tab" data-toggle="tab" href="#size" role="tab" aria-controls="size" aria-selected="true"><span class="badge badge-pill badge-secondary">1</span>Size and crust</a>
@@ -48,6 +49,8 @@
             <a class="nav-link" id="toppings-tab" data-toggle="tab" href="#toppings" role="tab" aria-controls="toppings" aria-selected="false"><span class="badge badge-pill badge-secondary">3</span>Toppings</a>
         </li>
     </ul>
+<!--    End nav tabs   -->
+
     <div class="tab-content" id="myTabContent">
         <div class="tab-pane fade show active" id="size" role="tabpanel" aria-labelledby="size-tab">
             <div class="card">
@@ -60,7 +63,9 @@
                             Hand Tossed
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Garlic seasoned crust with a rich, buttery taste.</li>
+                            <li class="list-group-item">
+                                Garlic seasoned crust with a rich, buttery taste.
+                            </li>
                             <li class="list-group-item">
                                 <input type="radio" name="crust" id="small-ht">
                                 <label for="small-ht">Small (10")</label>
@@ -78,7 +83,9 @@
                             Crispy Thin
                         </div>
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">Thin enough for optimum crispy to crunchy ratio.</li>
+                            <li class="list-group-item">
+                                Thin enough for optimum crispy to crunchy ratio.
+                            </li>
                             <li class="list-group-item">
                                 <input type="radio" name="crust" id="medium-tc">
                                 <label for="medium-tc">Medium (12")</label>
