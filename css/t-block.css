@@ -1,0 +1,15 @@
+body {
+    font-family: sans-serif;
+}
+
+.intro {
+    border-width: 5px !important;
+}
+
+.contact ul li {
+    list-style: none;
+}
+
+main h2 {
+    margin-top: 1em;
+}
