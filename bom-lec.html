@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Browser Object Model</title>
+</head>
+<body>
+<script>
+    // var count = 0;
+    // function hey() {
+    //     console.log('hey ' + count);
+    //     count = count + 1;
+    // }
+    // window.setInterval(hey, 1000);
+    // inside of console runs hey function once every second. 1000 milliseconds.
+
+
+//    dont use this to stop: will continue to run, even tho not outputting. check performance tab on console.
+//     var count = 0;
+//     function hey() {
+//         if(count < 10) {
+//             console.log('hey ' + count);
+//             count = count + 1;
+//         }
+//     }
+//can use clearInterval() - have to name it so browser knows which interval to stop
+
+    var count= 0;
+    var thisWillStop;
+    function hey() {
+        if (count < 10){
+            console.log('hey ' + count);
+            count = count + 1;
+        } else {
+            clearInterval(thisWillStop);
+        }
+    }
+
+    thisWillStop = setInterval(hey, 1000); //can place above the function definition
+
+
+</script>
+</body>
+</html>
