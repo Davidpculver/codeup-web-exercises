@@ -31,18 +31,18 @@
 
 
     //instructor example
-    function updateTimer() {
-        if (detonationTimer == 0) {
-            alert('EXTERMINATE!');
-            document.body.innerHTML = '';
-        } else if (detonationTimer > 0) {
-            document.getElementById('timer').innerHTML = detonationTimer;
-        }
-
-        detonationTimer--;
-    }
-
-    var makeItStop = setInterval(updateTimer, 1000);
+    // function updateTimer() {
+    //     if (detonationTimer == 0) {
+    //         alert('EXTERMINATE!');
+    //         document.body.innerHTML = '';
+    //     } else if (detonationTimer > 0) {
+    //         document.getElementById('timer').innerHTML = detonationTimer;
+    //     }
+    //
+    //     detonationTimer--;
+    // }
+    //
+    // var makeItStop = setInterval(updateTimer, 1000);
 
 
 
@@ -50,16 +50,16 @@
     // cancel the interval/timeout for updateTimer()
 
     //instructor example
-    function defuseTheBOM() {
-        clearInterval(makeItStop);
-    }
+    // function defuseTheBOM() {
+    //     clearInterval(makeItStop);
+    // }
 
     //MINE
 
-    // function defuseTheBOM() {
-    //     clearInterval(bomb);
-    //     alert("You saved the day!")
-    // }
+    function defuseTheBOM() {
+        clearInterval(bomb);
+        alert("You saved the day!")
+    }
 
     // Don't modify anything below this line!
     //
