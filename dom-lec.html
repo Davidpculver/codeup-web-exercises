@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM lecture</title>
+    <style>
+        .hotpink {
+            color: hotpink;
+        }
+    </style>
+</head>
+<body>
+    <p id="like">I like</p>
+    <p id="dontlike">I don't like</p>
+    <p id="marvel">Marvel</p>
+    <p id="dc">DC</p>
+
+    <form action="" name="changeColor">
+        <label for="colorPreference">Enter your color</label>
+        <input type="text" name="colorPreference" id="colorPreference">
+<!--        // type=button, not type=submit because not sending data to server or posting; only using for the page-->
+        <input type="button" id="colorSubmission" value="submit">
+    </form>
+
+    <p id="theHulk" data-state="The Hulk" data-strength = "super" data-intelligence = "low">The Hulk</p>
+    <button id="transformHulk">Transform Hulk</button>
+
+
+
+    <script src="js/dc-marvel.js">
+<!--        document object - getelementbyid is method of document object-->
+// get the element with the id of dc, store to var
+//         var accessTheDOM = document.getElementById('dc');
+//         //storing the content of the element into variable showMe
+//         var showMe = accessTheDOM.innerHTML;
+//         alert(showMe);
+
+    </script>
+</body>
+</html>
