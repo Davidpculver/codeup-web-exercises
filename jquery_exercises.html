@@ -4,15 +4,36 @@
     <meta charset="UTF-8">
     <title>jQuery Exercises</title>
     <script src="js/jquery-3.6.0.js"></script>
-    <script>$(document).ready(function () {
-        alert("The DOM has finished loading!");
-    })
-    </script>
+<!--    <script>$(document).ready(function () {-->
+<!--        alert("The DOM has finished loading!");-->
+<!--    })-->
+<!--    </script>-->
 </head>
 <body>
+<h1 id="header">Jquery exercises</h1>
+<p id="paragraph" class="codeup">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A mollitia non placeat, quis quos sed tempore tenetur voluptatem! A asperiores debitis in inventore laborum molestiae necessitatibus nihil nisi provident totam!</p>
+<ul class="foods"> List of food
+    <li>Burgers</li>
+    <li>Pizza</li>
+    <li>Ketchup</li>
+</ul>
+<div class="div codeup">This is a div</div>
 
 
+<script>
+    // var contents = $('#paragraph').html();
+    // alert(contents);
 
-<!--<script src="js/jquery_exercises.js"></script>-->
+    // $(".codeup").css("border", "1px solid red");
+
+    // $("li").css("font-size", "20px")
+
+    var contents = $('h1').html();
+    alert(contents);
+
+
+    $("h1, p, li")
+
+</script>
 </body>
 </html>
