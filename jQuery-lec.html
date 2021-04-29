@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery intro</title>
+    <script>
+        // window.onload = function (){
+        // //    enter a function here.
+        // }
+        $(document).ready(function () {
+        //    function goes here. will run even tho script is in the head
+        })
+    </script>
+</head>
+<body>
+
+<h1>first</h1>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem beatae consequuntur dolor ea fugiat illo itaque,
+    magni mollitia necessitatibus nobis non obcaecati odio quibusdam repudiandae sed, sit voluptatum! Natus,
+    voluptas.</p>
+
+<h2 id="id-selectors">ID selectors</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta, dignissimos expedita ipsa laborum modi non
+    perferendis rem tempora vel. Aperiam delectus ducimus esse natus nemo reiciendis tempora veniam vitae
+    voluptatem?</p>
+
+<h3 class="class-selectors">class selectors</h3>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est expedita facilis fugiat minima nobis
+    quisquam saepe voluptas? Ab commodi consectetur dolore dolorem et neque, sit! Aliquam aliquid aspernatur
+    eligendi non.</p>
+
+<h4>Generic element</h4>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque consequuntur, culpa cupiditate dignissimos dolores explicabo laboriosam libero modi natus optio quae qui quia reiciendis, reprehenderit sapiente soluta suscipit tenetur, voluptate.</p>
+
+<!--jquery cdn-->
+<!--        <script src="https://code.jquery.com/jquery-3.6.0.min.js"-->
+<!--                integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>-->
+
+<!--        using the downloaded jquery-->
+<script src="js/jquery-3.6.0.js"></script>
+
+<script>
+    <!--returns jquery object, passing .html method: accesses the innerHTML and changes the value-->
+    // jQuery("#id-selectors").html("I am the chosen one");
+
+    // the $ calls the jquery function - shortcut
+    $("#id-selectors").html("I am the chosen one");
+
+    //able to alter the css that is applied to an element
+    $(".class-selectors").css("font-family", "sans-serif");
+
+    //access all elements of a particular type using tag selector
+    // $("p").html("You've been pwned");
+
+    //feed it a variable
+    // var pwn = "you've been pwned";
+    // $("p").html(pwn);
+
+    // feed it a function
+    function pwned(num) {
+        var pwn = "you've been pwned";
+        for (var i = 0; i < num; i++){
+            pwn = pwn + " you've been pwned";
+        }
+        return pwn
+    }
+    $("p").html(pwned(10));
+
+    //use select lists of elements
+    $("h1, h2, p").html("I've taken back my computer.");
+
+    //you can use the universal selector
+    $("*").css("font-style", "italic");
+
+    //more advanced css selectors
+    $("h1 + p").html("Nope. You've been pwned");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<script src="js/Jquery-lec.js"></script>
+</body>
+</html>
