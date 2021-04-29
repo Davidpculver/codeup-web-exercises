@@ -18,7 +18,7 @@
     <li>Ketchup</li>
 </ul>
 <div class="div codeup">This is a div</div>
-
+<button id="button">Click me</button>
 
 <script>
     // var contents = $('#paragraph').html();
@@ -32,7 +32,24 @@
     // alert(contents);
 
 
-    $("h1, p, li").css("background-color", "yellow")
+    $("h1, p, li").css("background-color", "hotpink");
+
+    var theHeadersContent = $("h1").html();
+    alert(theHeadersContent);
+
+    $("#button").click(function () {
+        $("p").delay(500).fadeOut(500);
+        if($("p").css("display")==="none"){
+            $("p").fadeIn(1000);
+        }
+    })
+
+    var listItems = $("li").each(function () {
+        alert($(this).html());
+    //    the following only alerts the first list item * number of li items.
+    //    alert($("li").html());
+    });
+
 
 </script>
 </body>
