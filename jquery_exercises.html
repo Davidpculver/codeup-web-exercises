@@ -51,21 +51,31 @@
     // //    the following only alerts the first list item * number of li items.
     // //    alert($("li").html());
     // });
+
+    //MOUSE EVENTS EXERCISES
     $('h1').click(function () {
-        $('h1').css('background-color', 'blue');
+        // $('h1').css('background-color', 'blue');
+        $(this).css('background-color', 'blue');
     })
 
 
-    function changeFontSize() {
+    $('p').dblclick(function () {
+        // $('p').css('font-size', '18px');
         $(this).css('font-size', '18px');
-    }
+    })
 
-    $('p').dblclick(changeFontSize)
+    //SEPARATE ABOVE FUNCTION AND CALL:
+    // function changeFontSize() {
+    //     $(this).css('font-size', '18px');
+    // }
+    //
+    // $('p').dblclick(changeFontSize)
+
 
     $('li').hover(function () {
-      $(this).css('color', 'red');
+      $(this).css({'color': 'red', 'font-size': '24px'});
     }, function () {
-        $(this).css('color', 'black');
+        $(this).css({'color': 'black', 'font-size': 'initial'});
     })
 
 </script>
