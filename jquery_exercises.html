@@ -4,14 +4,16 @@
     <meta charset="UTF-8">
     <title>jQuery Exercises</title>
     <script src="js/jquery-3.6.0.js"></script>
-<!--    <script>$(document).ready(function () {-->
-<!--        alert("The DOM has finished loading!");-->
-<!--    })-->
-<!--    </script>-->
+    <!--    <script>$(document).ready(function () {-->
+    <!--        alert("The DOM has finished loading!");-->
+    <!--    })-->
+    <!--    </script>-->
 </head>
 <body>
 <h1 id="header">Jquery exercises</h1>
-<p id="paragraph" class="codeup">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A mollitia non placeat, quis quos sed tempore tenetur voluptatem! A asperiores debitis in inventore laborum molestiae necessitatibus nihil nisi provident totam!</p>
+<p id="paragraph" class="codeup">Lorem ipsum dolor sit amet, consectetur adipisicing elit. A mollitia non placeat, quis
+    quos sed tempore tenetur voluptatem! A asperiores debitis in inventore laborum molestiae necessitatibus nihil nisi
+    provident totam!</p>
 <ul class="foods"> List of food
     <li>Burgers</li>
     <li>Pizza</li>
@@ -32,24 +34,39 @@
     // alert(contents);
 
 
-    $("h1, p, li").css("background-color", "hotpink");
-
-    var theHeadersContent = $("h1").html();
-    alert(theHeadersContent);
-
-    $("#button").click(function () {
-        $("p").delay(500).fadeOut(500);
-        if($("p").css("display")==="none"){
-            $("p").fadeIn(1000);
-        }
+    // $("h1, p, li").css("background-color", "hotpink");
+    //
+    // var theHeadersContent = $("h1").html();
+    // alert(theHeadersContent);
+    //
+    // $("#button").click(function () {
+    //     $("p").delay(500).fadeOut(500);
+    //     if($("p").css("display")==="none"){
+    //         $("p").fadeIn(1000);
+    //     }
+    // })
+    //
+    // var listItems = $("li").each(function () {
+    //     alert($(this).html());
+    // //    the following only alerts the first list item * number of li items.
+    // //    alert($("li").html());
+    // });
+    $('h1').click(function () {
+        $('h1').css('background-color', 'blue');
     })
 
-    var listItems = $("li").each(function () {
-        alert($(this).html());
-    //    the following only alerts the first list item * number of li items.
-    //    alert($("li").html());
-    });
 
+    function changeFontSize() {
+        $(this).css('font-size', '18px');
+    }
+
+    $('p').dblclick(changeFontSize)
+
+    $('li').hover(function () {
+      $(this).css('color', 'red');
+    }, function () {
+        $(this).css('color', 'black');
+    })
 
 </script>
 </body>
