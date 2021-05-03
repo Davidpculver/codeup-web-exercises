@@ -2,9 +2,102 @@
 <html>
 <head>
     <title>Konami Code</title>
+    <link rel="stylesheet" href="css/konami.css">
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap" rel="stylesheet">
+
 </head>
 <body>
-<h1>Konami Code</h1>
+<div id="signon">
+    <form>
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label signIn">Agent</label>
+            <div class="col-sm-10">
+                <input type="text" readonly class="form-control-plaintext" id="staticEmail" value="Secret Agent">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="inputPassword" class="col-sm-2 col-form-label signIn">Secret sign in code</label>
+            <div class="col-sm-10">
+                <input type="password" class="form-control" id="inputPassword" placeholder="Enter your code">
+            </div>
+        </div>
+    </form>
+</div>
+<main class="container">
+    <div class="row">
+        <h1>Welcome Secret Agent.</h1>
+        <h2>Here is today's list of the top 5 most wanted criminals.</h2>
+        <div class="col-6">
+            <div>
+                <button id="btn1"><h2>#1</h2></button>
+                <div class="criminal" id="one">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/cookiemonster.jpeg" alt="Cookie monster">
+                        <div class="card-body">
+                            <h4 class="card-title">Cookie Monster</h4>
+                            <p class="card-text">Don't let his soft outer shell fool you. He will steal your cookies.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <button id="btn2"><h2>#2</h2></button>
+                <div class="criminal" id="two">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/darthvader.jpeg" alt="Darth Vader" style="height: 220px">
+                        <div class="card-body">
+                            <h4 class="card-title">Darth Vader</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button id="btn3"><h2>#3</h2></button>
+                <div class="criminal" id="three">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/cruella.jpeg" alt="Cruella Deville">
+                        <div class="card-body">
+                            <h4 class="card-title">Cruella Deville</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button id="btn4"><h2>#4</h2></button>
+                <div class="criminal" id="four">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/thanos.jpg" alt="Thanos">
+                        <div class="card-body">
+                            <h4 class="card-title">Thanos</h4>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                card's content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button id="btn5"><h2>#5</h2></button>
+                <div class="criminal" id="five">
+                    <div class="card" style="width: 18rem;">
+                        <img class="card-img-top" src="img/joker.png" alt="the Joker">
+                        <div class="card-body">
+                            <h4 class="card-title">The joker</h4>
+                            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa dolor fuga hic illum inventore labore, laudantium odio! Autem commodi fugiat id necessitatibus, neque nihil nostrum odit perspiciatis qui, sapiente suscipit. </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
 
 <script src="js/jquery-3.6.0.js"></script>
 <script>
@@ -20,15 +113,44 @@
     $(document).keyup(function(event) {
         if(userInput.length < konamiCode.length) {
                 userInput.push(event.keyCode);
-                console.log(userInput)
         } if(userInput.join() === konamiCode.join()) {
-            alert('you made it')
+            correctCode();
         } if(userInput.length === konamiCode.length && userInput.join() !== konamiCode.join()){
-            alert('you failed')
+            incorrect();
         }
     })
 
+    function incorrect() {
+        alert('You have entered incorrect information. System is self destructing');
+        $('#signon').css('display', 'none');
+        $('body').css({'background-image': 'url("img/screenofdeath.png")', 'background-size': 'cover'});
+    }
 
+    function correctCode() {
+        $('body').css('background-image', 'none');
+        $('main').css({'display': 'inline'});
+        $('#signon').css('display', 'none');
+    }
+
+    $('#btn1').click(function () {
+        $('#one').show();
+    })
+
+    $('#btn2').click(function () {
+        $('#two').show();
+    })
+
+    $('#btn3').click(function () {
+        $('#three').show();
+    })
+
+    $('#btn4').click(function () {
+        $('#four').show();
+    })
+
+    $('#btn5').click(function () {
+        $('#five').show();
+    })
 
 </script>
 </body>
