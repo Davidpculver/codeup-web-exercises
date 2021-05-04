@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery FAQ</title>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+    <style>
+
+        .invisible {
+            visibility: hidden;
+        }
+
+        .highlight {
+            background-color: red;
+        }
+
+        body {
+            font-family: 'PT Sans Narrow', sans-serif;
+            font-size: larger;
+            background-image: url("img/yosemite.jpeg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            color: yellow;
+        }
+
+        div {
+            text-align: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        h1 {
+            background-color: green;
+            padding: 1em;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+    <h1>National Parks FAQ's</h1>
+</div>
+
+
+<dl>
+    <dt>How many employees are in the National Park Service?</dt>
+    <dd>Permanent, temporary, and seasonal employees: Approximately 20,000</dd>
+    <dd>Volunteers: More than 279,000 in 2019</dd>
+
+    <dt>How many areas are in the National Park System?</dt>
+    <dd>The system includes 423 areas covering more than 85 million acres in every state, the District of Columbia,
+        American Samoa, Guam, Puerto Rico, and the Virgin Islands.
+    </dd>
+
+    <dt>What is the largest national park site?</dt>
+    <dd>Wrangell-St. Elias National Park and Preserve, AK, at 13.2 million acres</dd>
+
+    <dt>What is the smallest park site?</dt>
+    <dd>Thaddeus Kosciuszko National Memorial, PA, at 0.02 acres</dd>
+
+    <dt>How many people visit the national parks?</dt>
+    <dd>Total recreation visitors to the national parks in 2020: 237,064,332</dd>
+
+    <dt>What was the most visited national park in 2020?</dt>
+    <dd>Great Smoky Mountains National Park</dd>
+
+    <dt>Can I bring my pet to a national park?</dt>
+    <dd>Some national parks welcome pets—in developed areas, on many trails and campgrounds, and in some lodging
+        facilities.
+    </dd>
+
+    <dt>How old is the National Park System?</dt>
+    <dd>The National Park Service was created by an act signed by President Woodrow Wilson on August 25, 1916.
+        Yellowstone National Park was established by an act signed by President Ulysses S. Grant on March 1, 1872, as
+        the nation's first national park.
+    </dd>
+
+    <dt>How do I apply for a job with the National Park Service?</dt>
+    <dd>National Park Service jobs, including both permanent and seasonal positions, are listed on USAJOBs.</dd>
+
+    <dt>How do I obtain a park entrance pass?</dt>
+    <dd>You can obtain park entrance passes by visiting a park site that charges an entrance fee. Entrance fee sites
+        have passes available; we recommend calling a park prior to your visit.
+    </dd>
+
+</dl>
+
+<!--<button>View/Hide answers</button>-->
+
+<!--instructor example-->
+<p><a href="#">Change the answers</a></p>
+
+<script src="js/jquery-3.6.0.js"></script>
+<script>
+
+    $("dd").addClass("invisible");
+
+    //instructor example using <a>
+    $("a").click(function () {
+        $("dd").toggleClass("invisible");
+    })
+
+    // $("button").click(function () {
+    //         $("dd").toggleClass("invisible");
+    // });
+
+    $('dt').click(function () {
+        $(this).addClass('highlight');
+    })
+
+
+</script>
+
+</body>
+</html>
