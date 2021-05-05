@@ -46,6 +46,12 @@
             display: inline-block;
         }
 
+        img {
+            height: 130px;
+            width: 130px;
+            margin-top: 10px;
+        }
+
         #box1 {
             background-color: red;
         }
@@ -56,6 +62,18 @@
 
         #box3 {
             background-color: green;
+        }
+
+        .pic1 {
+            content: url('img/bordercollie.jpg');
+        }
+
+        .pic2 {
+            content: url("img/cookiemonster.jpeg");
+        }
+
+        .pic3 {
+            content: url("img/joker.png");
         }
 
     </style>
@@ -111,41 +129,69 @@
 <!--&lt;!&ndash;instructor example&ndash;&gt;-->
 <!--<p><a href="#">Change the answers</a></p>-->
 
-<!--    <h3>Yosemite National Park</h3>-->
-<!--    <ul id="yosemite">-->
-<!--        <li>Located in California</li>-->
-<!--        <li>Yosemite Valley and Mariposa Grove, it was the first time the U.S. government had ever set aside land for the-->
-<!--            benefit of the public, although it was not the country's first national park.-->
-<!--        </li>-->
-<!--        <li>Yosemites most famous hoetel was used as a wartime hospital.</li>-->
-<!--        <li>It is revered as the birth place of rock climbing for sport.</li>-->
-<!--    </ul>-->
-<!--    <h3>Glacier National Park</h3>-->
-<!--    <ul id="glacier">-->
-<!--        <li>Glacier has welcomed over 100 million visitors to the park.</li>-->
-<!--        <li>The largest glacier in the park is 0.7 square miles.</li>-->
-<!--        <li>The park contains 26 glaciers.</li>-->
-<!--        <li>Ten miles long and nearly 500 feet deep, Lake McDonald is the largest lake in the park.</li>-->
-<!--    </ul>-->
-<!--    <h3>Rocky Mountain National Park</h3>-->
-<!--    <ul id="rockymountain">-->
-<!--        <li> Rocky Mountain is one of the nation’s highest national parks.</li>-->
-<!--        <li>Rocky Mountain is one of country’s top wildlife watching destinations.</li>-->
-<!--        <li>Most of the park is designated as wilderness.</li>-->
-<!--        <li>Cresting just over 12,000 feet, Trail Ridge Road is the highest continuous paved highway in the nation &#45;&#45; it is-->
-<!--            so high that drivers will climb 4,000 feet in a matter of minutes!-->
-<!--        </li>-->
-<!--    </ul>-->
+
+    <ul id="yosemite">
+        <h3>Yosemite National Park</h3>
+        <li>Located in California</li>
+        <li>Yosemite Valley and Mariposa Grove, it was the first time the U.S. government had ever set aside land for the
+            benefit of the public, although it was not the country's first national park.
+        </li>
+        <li>Yosemites most famous hoetel was used as a wartime hospital.</li>
+        <li>It is revered as the birth place of rock climbing for sport.</li>
+    </ul>
+
+    <ul id="glacier">
+        <h3>Glacier National Park</h3>
+        <li>Glacier has welcomed over 100 million visitors to the park.</li>
+        <li>The largest glacier in the park is 0.7 square miles.</li>
+        <li>The park contains 26 glaciers.</li>
+        <li>Ten miles long and nearly 500 feet deep, Lake McDonald is the largest lake in the park.</li>
+    </ul>
+
+    <ul id="rockymountain">
+        <h3>Rocky Mountain National Park</h3>
+        <li> Rocky Mountain is one of the nation’s highest national parks.</li>
+        <li>Rocky Mountain is one of country’s top wildlife watching destinations.</li>
+        <li>Most of the park is designated as wilderness.</li>
+        <li>Cresting just over 12,000 feet, Trail Ridge Road is the highest continuous paved highway in the nation -- it is
+            so high that drivers will climb 4,000 feet in a matter of minutes!
+        </li>
+    </ul>
 
 
-<!--<button id="change-background">Change background</button>-->
+<button id="change-background">Change background</button>
+<hr>
 
-<div class="box" id="box1"></div>
-<div class="box" id="box2"></div>
-<div class="box" id="box3"></div>
+<div class="box" id="box1">
+    <img id="img1" src="img/bordercollie.jpg" alt="">
+</div>
+<button id="btn1">Click me</button>
+<div class="box" id="box2">
+    <img id="img2" src="img/cookiemonster.jpeg" alt="">
+</div>
+<button id="btn2">Click me</button>
+<div class="box" id="box3">
+    <img id="img3" src="img/joker.png" alt="">
+</div>
+<button id="btn3">Click me</button>
+
 
 <script src="js/jquery-3.6.0.js"></script>
 <script>
+
+    var pic1 = src = "img/bordercollie.jpg";
+    var pic2 = src = "img/cookiemonster.jpeg";
+    var pic3 = src = "img/joker.png";
+
+    $('#btn1').click(function () {
+        $('#img1').toggleClass('pic2');
+        $('#img2').toggleClass('pic1');
+    })
+
+    $('#btn3').click(function () {
+        $('#img3').toggleClass('pic2');
+        $('#img2').toggleClass('pic3');
+    })
 
     // $("dd").addClass("invisible");
     //
@@ -164,17 +210,29 @@
 
     $('#change-background').click(function () {
         // $('ul li:last-child').css('background-color', 'yellow')
-        $('ul').children().next().next().next().css('background-color', 'yellow')
+        $('ul').children().next().next().next().next().css('background-color', 'yellow')
     })
+
+    //instructor example:
+    // $('#change-background').click(function () {
+    //     $('ul').each(function () {
+    //         $(this).children().last().css('background', 'yellow');
+    //     })
+    // })
+
 
     $('h3').click(function () {
-        $(this).next().children().css('font-weight', 'bold');
+        // $(this).parent().children().css('font-weight', 'bold');
+        $(this).nextAll().css('font-weight', 'bold');
     })
+
 
     $('li').click(function () {
-        $(this).parent().children().first().css('color', 'blue');
+        $(this).parent().children('li').first().css('color', 'blue');
     })
 
+
+//    BONUS
 
 
 </script>
