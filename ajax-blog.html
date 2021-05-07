@@ -8,6 +8,15 @@
 
     <style>
 
+        body {
+            margin: 2em;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 2em;
+        }
+
         img {
             height: 75px;
         }
@@ -16,6 +25,8 @@
 
 </head>
 <body>
+
+<h1>Blogging the Neptunes</h1>
 <div>
     <ul class="list-unstyled" id="posts">
 
@@ -32,7 +43,6 @@
         function blogPost() {
             $('#posts').html('');
             $.get('data/blog.json').done(function (blogs) {
-                console.log(blogs);
                 for (var i = 0; i < blogs.length; i++) {
                     var blogPost = '<li class="media">';
                     blogPost += '<img src="https://via.placeholder.com/150\n' +

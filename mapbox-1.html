@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox airport exercise</title>
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+
+<button id="zoom">Zoom in</button>
+
+<script src="js/keys.js"></script>
+<script src="js/jquery-3.6.0.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<script>
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+        center: [-98.4683, 29.5312], // starting position [lng, lat]
+        zoom: 12 // starting zoom
+    });
+
+    // setTimeout(function flyToDFW() {
+    //     map.setCenter([-97.0403, 32.8998]);
+    //     map.setStyle('mapbox://styles/mapbox/satellite-streets-v11');
+    // }, 10000);
+
+    //instructor example
+    setTimeout(function () {
+        map.flyTo({
+            center: [-97.0403, 32.8998],
+            zoom: 12,
+            speed: 0.5,
+            style: 'mapbox://styles/mapbox/satellite-streets-v11'
+        })
+    }, 10000)
+
+
+    $('#zoom').click(function () {
+        var zoomVal = map.getZoom()
+        map.setZoom(zoomVal + 1);
+    })
+
+//     instructor example
+//         $('#zoom').click(function () {
+//             map.setZoom(map.getZoom() + 1)
+//         })
+
+</script>
+</body>
+</html>

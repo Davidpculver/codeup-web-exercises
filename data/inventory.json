@@ -30,14 +30,5 @@
             "tool"
         ],
         "price": 10
-    },
-    {
-        "title": "Weed Eaters",
-        "quantity": 7,
-        "categories": [
-            "gas",
-            "outdoor"
-        ],
-        "price": 85
     }
 ]

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox exercises</title>
+
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+<body>
+
+
+
+<div id='map' style='width: 400px; height: 300px;'></div>
+
+
+
+<script src="js/jquery-3.6.0.js"></script>
+<script src="js/keys.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1IjoiY3Jkb3JpdG8iLCJhIjoiY2tvZWc3NTc0MDc2bDJ2b2R2Z2hud2JmOCJ9.ZhNGnsacFcvxp8Jy8XMPOQ';
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/streets-v11', // style URL
+    });
+
+    geocode("2100 wakonda view drive des moines iowa", MAPBOX_ACCESS_TOKEN).then(function (results) {
+        map.setCenter(results);
+        map.setZoom(15)
+    })
+
+
+    var marker = new mapboxgl.Marker({
+        color: 'red'
+    }).setLngLat(map.getCenter())
+    .addTo(map);
+
+</script>
+</body>
+</html>

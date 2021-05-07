@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox lecture</title>
+<!--Mapbox tags-->
+
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+
+        .popup-font {
+            font-family: Chalkboard, sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Welcome to Mapbox</h1>
+
+<div id='map' style='width: 600px; height: 500px; border-radius: 10px'></div>
+
+
+<script src="js/keys.js"></script>
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+<script>
+    mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
+    var map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/satellite-streets-v11', // style URL
+        center: [-98.4916, 29.4252], // starting position [lng, lat] coordinates
+        zoom: 10 // starting number 9; zoom higher zoom closer, less zoom farther
+    });
+
+    //can set map properties outside. List of .methods in documentation
+    map.setStyle('mapbox://styles/mapbox/dark-v10');
+    map.setZoom(10);
+
+    map.addControl(new mapboxgl.NavigationControl())
+
+
+    var marker = new mapboxgl.Marker({
+        color: 'red',
+        draggable: true
+    })        //setting methods to the new marker object
+        .setLngLat([-98.4861, 29.4260])
+        .addTo(map)
+//    or:
+//         .setDraggable(true);
+
+    marker.on('dragend', function () {
+        alert(marker.getLngLat().toString())
+    })
+
+
+    //chaining methods together: could be all on one line - this is why "popup" var connects to all.
+    // could do: popup.setHTML(), etc.
+    var popup = new mapboxgl.Popup()
+        .setLngLat(marker.getLngLat())
+        .setHTML("<h1>The Alamo</h1>")
+        .setMaxWidth("100px")
+        .addTo(map);
+
+    marker.setPopup(popup);
+    popup.addClassName('popup-font');
+
+
+    geocode("san antonio", MAPBOX_ACCESS_TOKEN).then(function (results) {
+        console.log(results)
+    })
+
+    reverseGeocode({lng: -98.4951, lat: 29.4246}, MAPBOX_ACCESS_TOKEN).then(function (results) {
+        console.log(results)
+    })
+
+</script>
+</body>
+</html>
