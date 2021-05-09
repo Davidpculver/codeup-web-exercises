@@ -14,7 +14,7 @@
 
 <div id='map' style='width: 400px; height: 300px;'></div>
 
-
+<button id="openPopup">Open popup</button>
 
 <script src="js/jquery-3.6.0.js"></script>
 <script src="js/keys.js"></script>
@@ -27,16 +27,32 @@
         style: 'mapbox://styles/mapbox/streets-v11', // style URL
     });
 
+    var marker = new mapboxgl.Marker({
+        color: 'red',
+        draggable: 'true'
+    })
+
+    var popup = new mapboxgl.Popup()
+
+
     geocode("2100 wakonda view drive des moines iowa", MAPBOX_ACCESS_TOKEN).then(function (results) {
         map.setCenter(results);
-        map.setZoom(15)
+        map.setZoom(13);
+        console.log(results);
+        marker.setLngLat({lng: results[0], lat: results[1]});
+        marker.addTo(map)
+        popup.setLngLat({lng: results[0], lat: results[1]});
+        popup.setHTML('<h3>Francies</h3>');
     })
 
 
-    var marker = new mapboxgl.Marker({
-        color: 'red'
-    }).setLngLat(map.getCenter())
-    .addTo(map);
+    var open = marker.setPopup(popup);
+
+    $(open).click(function () {
+        popup.addTo(map);
+    })
+
+
 
 </script>
 </body>
