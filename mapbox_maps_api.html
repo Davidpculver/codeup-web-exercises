@@ -83,6 +83,7 @@
     })
     map.addControl(new mapboxgl.NavigationControl())
 
+    //sets map center to des moines so city is centered on page
     geocode('des moines, ia', MAPBOX_ACCESS_TOKEN).then(function (results) {
         map.setCenter(results);
         map.setZoom(11);
@@ -117,6 +118,7 @@
         }
     ]
 
+    //sets location and markers for each faveRestaurant
     faveRestaurants.forEach(function (restaurant) {
         geocode(restaurant.location, MAPBOX_ACCESS_TOKEN).then(function (results) {
             var popup = new mapboxgl.Popup()
@@ -131,17 +133,22 @@
     })
 
 
+    //opens popup when marker is clicked
     var open = marker.setPopup(popup);
 
     $(open).click(function () {
         popup.addTo(map);
     })
 
+
+    //adjusts zoom level on drop down button
     $('li').click(function () {
         var zoomLevel = $(this).val();
         map.setZoom(zoomLevel)
     })
 
+
+    //flies map to address that user input
     $("#btn2").click(function() {
         var userInput = $("#input").val();
         geocode(userInput, MAPBOX_ACCESS_TOKEN).then(function (info) {
@@ -157,6 +164,8 @@
         });
     });
 
+
+    //cant get this to work: supposed to remove markers when clicked
     $('#remove').click(function () {
         marker.remove();
     })
