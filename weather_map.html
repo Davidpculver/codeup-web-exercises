@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OpenWeather API Playground</title>
+</head>
+<body>
+<h1>The weather forecast</h1>
+<div id="current"><h1>Current weather conditions</h1></div>
+<div class="forecast"></div>
+<script src="js/jquery-3.6.0.js"></script>
+<script src="js/keys.js"></script>
+<script>
+    var coordinates = [29.4241, -98.4936];
+
+    function weatherForecast() {
+        $('.forecast').html('');
+        $.get("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + coordinates[0] + "&lon=" + coordinates[1] + "&exclude=hourly,minutely&appid=" + WEATHER_MAP_TOKEN)
+            .done(function (resp) {
+                console.log(resp);
+                var currentConditions = '<p>The current temperature is: ' + resp.current.temp.toFixed(0) +'</p>';
+                currentConditions +='<p>Feels like: ' + resp.current.feels_like.toFixed(0) + '</p>';
+                $('#current').append(currentConditions);
+                for(var i = 0; i < 6; i++){
+                    var dailyForecast = resp.daily[i];
+                    var date = new Date(dailyForecast.dt * 1000);
+                    var humanDay = date.toLocaleString('en-us', {weekday: 'long'});
+                    var humanMonth = date.toLocaleString('en-us', {month: 'long'});
+                    var humanDate = date.toLocaleString('en-us', {day: 'numeric'});
+                    var humanYear = date.toLocaleString("en-US", {year: "numeric"})
+                    var newForecast = '<h1>' + humanDay + ' ' + humanMonth + ' ' + humanDate + ' ' + humanYear + '</h1>';
+                    newForecast += '<p>High / Low Temps</p>';
+                    newForecast += '<p>' + dailyForecast.temp.max.toFixed(1) + '&degF / ';
+                    newForecast += + dailyForecast.temp.min.toFixed(1) + ' &degF</p>'
+                    $('.forecast').append(newForecast);
+                }
+
+            });
+    }
+
+    weatherForecast();
+
+
+    // function currentInventory() {
+    //     $('#insertProducts').html('');
+    //     $.get('data/inventory.json').done(function (inventory) {
+    //         for (var i = 0; i < inventory.length; i++){
+    //             var newInventory = "<tr><td scope='row'>" + inventory[i].title + "</td>";
+    //             newInventory += "<td>" + inventory[i].quantity + "</td>";
+    //             newInventory += "<td>" + inventory[i].price + "</td>";
+    //             newInventory += "<td>" + inventory[i].categories + "</td>";
+    //             newInventory += "</tr>";
+    //             $('#insertProducts').append(newInventory);
+    //         }
+    //     })
+    // }
+    // currentInventory();
+
+
+
+
+</script>
+</body>
+</html>
