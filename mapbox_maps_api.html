@@ -15,8 +15,6 @@
             margin: 1em;
         }
 
-
-
         #map {
             text-align: center;
         }
@@ -52,7 +50,7 @@
         </ul>
     </div>
 
-    <button class="btn btn-primary" id="remove">Remove Markers</button>
+    <button class="btn btn-primary" id="removeMarker">Remove Markers</button>
 </div>
 <!--button dropdown-->
 
@@ -90,8 +88,7 @@
     })
 
     var marker = new mapboxgl.Marker({
-        color: 'blue',
-        draggable: 'true'
+        color: 'blue'
     })
 
     var popup = new mapboxgl.Popup()
@@ -123,10 +120,10 @@
         geocode(restaurant.location, MAPBOX_ACCESS_TOKEN).then(function (results) {
             var popup = new mapboxgl.Popup()
                 .setHTML('<h3>' + restaurant.name + '</h3>' + '</br>' + restaurant.img + '</br>' + restaurant.description);
-            var marker = new mapboxgl.Marker({
+            marker = new mapboxgl.Marker({
                 color: 'blue'
             })
-                .setLngLat(results)
+               .setLngLat(results)
                 .addTo(map)
                 .setPopup(popup);
         })
@@ -166,7 +163,7 @@
 
 
     //cant get this to work: supposed to remove markers when clicked
-    $('#remove').click(function () {
+    $('#removeMarker').click(function () {
         marker.remove();
     })
 
