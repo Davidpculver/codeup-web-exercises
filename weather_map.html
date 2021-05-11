@@ -15,11 +15,14 @@
         <div>
             <h1 class="display-4">Your Daily Weather</h1>
             <label for="input"></label>
-            <input type="text" id="input" placeholder="Search by city">
-            <button class="btn btn-primary" id="btn2">Find my forecast</button>
+            <input type="search" id="input" placeholder="Search by city">
+            <button type="submit" class="btn btn-primary" id="btn2">Find my forecast</button>
         </div>
-
-        <div id="current"></div>
+        <div class="currentLocWeather">
+            <div id="currentCity"></div>
+            <div id="current" style="padding: 0"></div>
+            <div id="alert"></div>
+        </div>
     </div>
 </header>
 
@@ -44,28 +47,47 @@
 
 <script>
 
+    //Sets opening to San Antonio, TX
     var coordinates = [29.4241, -98.4936];
 
+    //Returns the current conditions and weather forcast for location
     function weatherForecast() {
         $('#forecast').html('');
+        $('#current').html('');
+        $('#currentCity').html('')
         $.get("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + coordinates[0] + "&lon=" + coordinates[1] + "&exclude=hourly,minutely&appid=" + WEATHER_MAP_TOKEN)
             .done(function (resp) {
                 console.log(resp);
+
+                //Gets the location by coordinates and displays the city name
+                reverseGeocode(marker.getLngLat(), MAPBOX_ACCESS_TOKEN).then(function (res) {
+                    $('#currentCity').append('<h4>' + res.features[2].place_name + '</h4>');
+                })
+
                 //outputs the current weather condition
                 var currentConditions = '<ul class="currentWeather"><h5>Current Conditions</h5>'
                 currentConditions += '<li>Current temperature: ' + resp.current.temp.toFixed(0) + ' &degF</li>';
                 currentConditions += '<li>Feels like: ' + resp.current.feels_like.toFixed(0) + ' &degF</li>';
                 currentConditions += '<li>Humidity: ' + resp.current.humidity + '&percnt;</li>';
-                //if there is a weather alert it will display bold and red background
-                if (resp.alerts) {
-                    currentConditions += '<li id="alert"><strong>' + resp.alerts[0].event + '</strong>';
-                }
                 currentConditions += '</ul>'
                 $('#current').append(currentConditions);
+
+                //if there is a weather alert it will display bold and red background
+                if (resp.alerts) {
+                    var weatherAlert = resp.alerts[0].description + '<button id="close">Close</button>';
+                    $('#alert').append(weatherAlert);
+
+                    //Close weather alert when close button is clicked
+                    $('#close').click(function () {
+                        $('#alert').addClass('warning')
+                    });
+                }
+
                 //loop for the daily forecast
                 for (var i = 0; i < 5; i++) {
                     var dailyForecast = resp.daily[i];
                     var weatherPic;
+
                     //sets which weather icons to use based on the weather conditions
                     if (dailyForecast.clouds < 20) {
                         weatherPic = '<img src="img/sunny.png"class="card-img-top" alt="Mostly sunny">';
@@ -86,13 +108,15 @@
                             weatherPic = '<img src="img/mostlycloudy.png"class="card-img-top" alt="Mostly Cloudy">';
                         }
                     }
+
                     //Changes the date string to readable
                     var date = new Date(dailyForecast.dt * 1000);
                     var humanDay = date.toLocaleString('en-us', {weekday: 'short'});
                     var humanMonth = date.toLocaleString('en-us', {month: 'long'});
                     var humanDate = date.toLocaleString('en-us', {day: 'numeric'});
-                    var humanYear = date.toLocaleString("en-US", {year: "numeric"});
-                    //Creates each individual card
+                    // var humanYear = date.toLocaleString("en-US", {year: "numeric"});
+
+                    //Creates each individual days card
                     var newForecast = '<div class="card" style="width: 18rem;">';
                     newForecast += weatherPic;
                     newForecast += '<div class="card-header"><h5>' + humanDay + ' ' + humanMonth + ' ' + humanDate + '</h5></div>';
@@ -131,6 +155,7 @@
 
     //Updates weather based on user input and flies to that location
     $("#btn2").click(function () {
+        $('#currentCity').html('');
         var userInput = $("#input").val();
         geocode(userInput, MAPBOX_ACCESS_TOKEN).then(function (info) {
             console.log(info);
@@ -139,13 +164,20 @@
                 lat: info[1]
             };
             marker.setLngLat(newCenter);
-            console.log(userInput);
-            map.flyTo({center: newCenter});
+            map.flyTo({center: newCenter, zoom: 10});
+
+            //Reverses coordinates to fit weather api
             coordinates = [info[1], info[0]];
             weatherForecast();
         });
     });
 
+    //Utilizes enter key to submit enter city form
+    $('#input').keyup(function (event) {
+        if (event.keyCode === 13) {
+            $('#btn2').click();
+        }
+    })
 
 </script>
 </body>

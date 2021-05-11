@@ -8,8 +8,12 @@ header {
     padding: 1em;
 }
 
-#current {
+.currentLocWeather {
     margin-left: auto;
+    padding-top: .5em
+}
+
+#current {
     padding: 1em;
 }
 
@@ -34,4 +38,8 @@ header {
 img {
     height: 200px;
     width: 150px;
+}
+
+.warning {
+    display: none;
 }
