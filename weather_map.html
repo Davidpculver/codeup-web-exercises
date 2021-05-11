@@ -3,60 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <title>OpenWeather API Playground</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+          integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/weather_map.css">
 </head>
 <body>
-<h1>The weather forecast</h1>
-<div id="current"><h1>Current weather conditions</h1></div>
-<div class="forecast"></div>
+<header>
+    <div class="d-md-flex flex-md-row" id="heading">
+        <div>
+            <h1 class="display-4">Your Daily Weather</h1>
+            <label for="input"></label>
+            <input type="text" id="input" placeholder="Search by city">
+            <button class="btn btn-primary" id="btn2">Find my forecast</button>
+        </div>
+
+        <div id="current"></div>
+    </div>
+</header>
+
+<main>
+    <div class="d-md-flex flex-md-row" id="forecast"></div>
+</main>
+
+
 <script src="js/jquery-3.6.0.js"></script>
 <script src="js/keys.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 <script>
     var coordinates = [29.4241, -98.4936];
 
+
+    //Prior to styling: functional for weather forecast
+    // function weatherForecast() {
+    //     $('#forecast').html('');
+    //     $.get("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + coordinates[0] + "&lon=" + coordinates[1] + "&exclude=hourly,minutely&appid=" + WEATHER_MAP_TOKEN)
+    //         .done(function (resp) {
+    //             console.log(resp);
+    //             var currentConditions = '<p>The current temperature is: ' + resp.current.temp.toFixed(0) + '</p>';
+    //             currentConditions += '<p>Feels like: ' + resp.current.feels_like.toFixed(0) + '</p>';
+    //             currentConditions += '<p>Humidity level: ' + resp.current.humidity + '&percnt;</p>';
+    //             $('#current').append(currentConditions);
+    //             for (var i = 0; i < 6; i++) {
+    //                 var dailyForecast = resp.daily[i];
+    //                 var date = new Date(dailyForecast.dt * 1000);
+    //                 var humanDay = date.toLocaleString('en-us', {weekday: 'long'});
+    //                 var humanMonth = date.toLocaleString('en-us', {month: 'long'});
+    //                 var humanDate = date.toLocaleString('en-us', {day: 'numeric'});
+    //                 var humanYear = date.toLocaleString("en-US", {year: "numeric"})
+    //                 var newForecast = '<h1>' + humanDay + ' ' + humanMonth + ' ' + humanDate + ' ' + humanYear + '</h1>';
+    //                 newForecast += '<p>Temps: High / Low</p>';
+    //                 newForecast += '<p>' + dailyForecast.temp.max.toFixed(1) + '&degF / ';
+    //                 newForecast += +dailyForecast.temp.min.toFixed(1) + ' &degF</p>';
+    //                 newForecast += '<p>Humidity: ' + dailyForecast.humidity + '&percnt;</p>';
+    //                 newForecast += '<p>Chance of precipitation: ' + (dailyForecast.pop * 100) + '&percnt;</p>';
+    //                 $('#forecast').append(newForecast);
+    //             }
+    //         });
+    // }
+
+
     function weatherForecast() {
-        $('.forecast').html('');
+        $('#forecast').html('');
         $.get("https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=" + coordinates[0] + "&lon=" + coordinates[1] + "&exclude=hourly,minutely&appid=" + WEATHER_MAP_TOKEN)
             .done(function (resp) {
                 console.log(resp);
-                var currentConditions = '<p>The current temperature is: ' + resp.current.temp.toFixed(0) +'</p>';
-                currentConditions +='<p>Feels like: ' + resp.current.feels_like.toFixed(0) + '</p>';
+                var currentConditions = '<ul class="currentWeather"><h5>Current Conditions</h5>'
+                currentConditions += '<li>Current temperature: ' + resp.current.temp.toFixed(0) + ' &degF</li>';
+                currentConditions += '<li>Feels like: ' + resp.current.feels_like.toFixed(0) + ' &degF</li>';
+                currentConditions += '<li>Humidity: ' + resp.current.humidity + '&percnt;</li>';
+                currentConditions += '<li id="alert"><strong>' + resp.alerts[0].event + '</strong>';
+                currentConditions += '</ul>'
                 $('#current').append(currentConditions);
-                for(var i = 0; i < 6; i++){
+                for (var i = 0; i < 6; i++) {
                     var dailyForecast = resp.daily[i];
+                    var weatherPic;
+                    if (dailyForecast.clouds < 20) {
+                        weatherPic = '<img src="img/sunny.png"class="card-img-top" alt="Mostly sunny">';
+                    } else if (dailyForecast.clouds > 20 && dailyForecast.clouds < 60) {
+                        if (dailyForecast.rain >= .2 && dailyForecast.rain < .8) {
+                            weatherPic = '<img src="img/rainchance.png"class="card-img-top" alt="Chance of showers">';
+                        } else if (dailyForecast.rain >= .8) {
+                            weatherPic = '<img src="img/rain.png"class="card-img-top" alt="Rain">';
+                        } else {
+                            weatherPic = '<img src="img/partlycloudy.png"class="card-img-top" alt="Partly Cloudy">';
+                        }
+                    } else if (dailyForecast.clouds >= 60) {
+                        if (dailyForecast.rain >= .1 && dailyForecast.rain < .8) {
+                            weatherPic = '<img src="img/rainchance.png"class="card-img-top" alt="Chance of showers">';
+                        } else if (dailyForecast.rain >= .8) {
+                            weatherPic = '<img src="img/rain.png"class="card-img-top" alt="Rain">';
+                        } else {
+                            weatherPic = '<img src="img/mostlycloudy.png"class="card-img-top" alt="Mostly Cloudy">';
+                        }
+                    }
                     var date = new Date(dailyForecast.dt * 1000);
-                    var humanDay = date.toLocaleString('en-us', {weekday: 'long'});
+                    var humanDay = date.toLocaleString('en-us', {weekday: 'short'});
                     var humanMonth = date.toLocaleString('en-us', {month: 'long'});
                     var humanDate = date.toLocaleString('en-us', {day: 'numeric'});
-                    var humanYear = date.toLocaleString("en-US", {year: "numeric"})
-                    var newForecast = '<h1>' + humanDay + ' ' + humanMonth + ' ' + humanDate + ' ' + humanYear + '</h1>';
-                    newForecast += '<p>High / Low Temps</p>';
-                    newForecast += '<p>' + dailyForecast.temp.max.toFixed(1) + '&degF / ';
-                    newForecast += + dailyForecast.temp.min.toFixed(1) + ' &degF</p>'
-                    $('.forecast').append(newForecast);
+                    var humanYear = date.toLocaleString("en-US", {year: "numeric"});
+                    var newForecast = '<div class="card" style="width: 18rem;">';
+                    newForecast += weatherPic;
+                    newForecast += '<div class="card-header"><h5>' + humanDay + ' ' + humanMonth + ' ' + humanDate + '</h5></div>';
+                    newForecast += '<ul class="list-group list-group-flush">';
+                    newForecast += '<li class="list-group-item">High / Low </br>';
+                    newForecast += dailyForecast.temp.max.toFixed(1) + '&degF / ';
+                    newForecast += +dailyForecast.temp.min.toFixed(1) + ' &degF</li>';
+                    newForecast += '<li class="list-group-item">Humidity: ' + dailyForecast.humidity + '&percnt;</li>';
+                    newForecast += '<li class="list-group-item">Chance of precipitation: ' + (dailyForecast.pop * 100) + '&percnt;</li>';
+                    newForecast += '</ul>';
+                    newForecast += '</div>'
+                    $('#forecast').append(newForecast);
                 }
-
             });
     }
 
+
     weatherForecast();
-
-
-    // function currentInventory() {
-    //     $('#insertProducts').html('');
-    //     $.get('data/inventory.json').done(function (inventory) {
-    //         for (var i = 0; i < inventory.length; i++){
-    //             var newInventory = "<tr><td scope='row'>" + inventory[i].title + "</td>";
-    //             newInventory += "<td>" + inventory[i].quantity + "</td>";
-    //             newInventory += "<td>" + inventory[i].price + "</td>";
-    //             newInventory += "<td>" + inventory[i].categories + "</td>";
-    //             newInventory += "</tr>";
-    //             $('#insertProducts').append(newInventory);
-    //         }
-    //     })
-    // }
-    // currentInventory();
-
-
 
 
 </script>

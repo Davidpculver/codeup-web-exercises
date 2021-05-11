@@ -1,0 +1,37 @@
+header {
+    background-color: #3B94D9;
+    text-align: center;
+}
+
+#heading {
+    align-items: center;
+    padding: 1em;
+}
+
+#current {
+    margin-left: auto;
+    padding: 1em;
+}
+
+.currentWeather {
+    padding: 0;
+}
+
+.currentWeather li {
+    list-style: none;
+    padding: 0;
+}
+
+#alert {
+    background-color: red;
+}
+
+#forecast {
+    text-align: center;
+
+}
+
+img {
+    height: 200px;
+    width: 150px;
+}
