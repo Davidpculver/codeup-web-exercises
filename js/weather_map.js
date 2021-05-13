@@ -23,6 +23,7 @@
                 // Capitalize current weather description
                 var weatherConditions = resp.current.weather[0].description;
                 var currentWeather = weatherConditions.split(" ");
+                //capitalizes the city name
                 for (let i = 0; i < currentWeather.length; i++) {
                     currentWeather[i] = currentWeather[i][0].toUpperCase() + currentWeather[i].substr(1);
                 }
@@ -92,7 +93,7 @@
                     newForecast += dailyForecast.temp.max.toFixed(1) + '&degF / ';
                     newForecast += +dailyForecast.temp.min.toFixed(1) + ' &degF</li>';
                     newForecast += '<li class="list-group-item">Humidity: ' + dailyForecast.humidity + '&percnt;</li>';
-                    newForecast += '<li class="list-group-item">Chance of precipitation: ' + (dailyForecast.pop * 100) + '&percnt;</li>';
+                    newForecast += '<li class="list-group-item">Chance of precipitation: ' + (dailyForecast.pop * 100).toFixed(0) + '&percnt;</li>';
                     newForecast += '</ul>';
                     newForecast += '</div>';
                     newForecast += '</div>';
