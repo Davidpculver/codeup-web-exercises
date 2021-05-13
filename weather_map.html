@@ -122,31 +122,16 @@
                     var humanDay = date.toLocaleString('en-us', {weekday: 'short'});
                     var humanMonth = date.toLocaleString('en-us', {month: 'long'});
                     var humanDate = date.toLocaleString('en-us', {day: 'numeric'});
-
                     var sunrise = new Date(dailyForecast.sunrise * 1000);
                     var humanSunRise = sunrise.toLocaleTimeString('en-US');
                     var sunset = new Date(dailyForecast.sunset * 1000);
                     var humanSunSet = sunset.toLocaleTimeString('en-US');
-                    // var humanYear = date.toLocaleString("en-US", {year: "numeric"});
 
                     //Creates each individual days card
-                    // var newForecast = '<div class="card" style="width: 18rem;">';
-                    // newForecast += weatherPic;
-                    // newForecast += '<div class="card-header"><h5>' + humanDay + ' ' + humanMonth + ' ' + humanDate + '</h5></div>';
-                    // newForecast += '<ul class="list-group list-group-flush">';
-                    // newForecast += '<li class="list-group-item">High / Low </br>';
-                    // newForecast += dailyForecast.temp.max.toFixed(1) + '&degF / ';
-                    // newForecast += +dailyForecast.temp.min.toFixed(1) + ' &degF</li>';
-                    // newForecast += '<li class="list-group-item">Humidity: ' + dailyForecast.humidity + '&percnt;</li>';
-                    // newForecast += '<li class="list-group-item">Chance of precipitation: ' + (dailyForecast.pop * 100) + '&percnt;</li>';
-                    // newForecast += '</ul>';
-                    // newForecast += '</div>'
-                    // $('#forecast').append(newForecast);
-
                     var newForecast = '<div class="image-flip" ontouchstart="this.classList.toggle(\'hover\');">';
                     newForecast += '<div class="mainflip">';
                     newForecast += '<div class="frontside">';
-                    newForecast += '<div class="card" style="width: 100%;">';
+                    newForecast += '<div class="card">';
                     newForecast += weatherPic;
                     newForecast += '<div class="card-header"><h5>' + humanDay + ' ' + humanMonth + ' ' + humanDate + '</h5></div>';
                     newForecast += '<ul class="list-group list-group-flush">';
@@ -159,7 +144,7 @@
                     newForecast += '</div>';
                     newForecast += '</div>';
                     newForecast += '<div class="backside">';
-                    newForecast += '<div class="card" style="width: 100%;">';
+                    newForecast += '<div class="card">';
                     newForecast += '<ul class="list-group list-group-flush">';
                     newForecast += weatherPic;
                     newForecast += '<li class="list-group-item">Dew Point: ';
@@ -174,15 +159,7 @@
                     newForecast += '</div>';
                     newForecast += '</div>';
 
-
-
                     $('#forecast').append(newForecast);
-
-
-
-
-
-
                 }
             });
     }
