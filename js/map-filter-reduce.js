@@ -46,7 +46,6 @@ const users = [
 
 let userEmails = users.map(user => user.email)
 
-console.log(userEmails)
 
 // let threeLangs = users.filter(function (user) {
 //     if(user.languages.length >= 3){
@@ -60,12 +59,20 @@ const threeLangs = users.filter((user) => {
     }
 })
 
-console.log(threeLangs)
-
-const totalYears = users.reduce((total, individual) => {
-    let yearsExperience = total + individual;
-    return yearsExperience;
+//instructor example
+let trilinguals = users.filter(function (user) {
+    return user.languages.length >= 3;
 })
+
+
+
+//the following works but dont think it is correct
+const totalYears = users.reduce((acc, val) => {
+    // console.log(acc);
+    console.log(val)
+    let yearsExperience = acc + val.yearsOfExperience;
+    return yearsExperience;
+}, 0)
 
 console.log(totalYears)
 
