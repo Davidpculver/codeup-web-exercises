@@ -38,6 +38,8 @@ const name = 'david';
 const email = 'culver.david.p@gmail.com';
 const languages = ['html', 'css', 'javascript'];
 
+// name = 'Winston';
+
 // TODO: rewrite the object literal using object property shorthand
 // users.push({
 //   name: name,
@@ -45,11 +47,11 @@ const languages = ['html', 'css', 'javascript'];
 //   languages: languages
 // });
 
-const user = {
+users.push({
   name,
   email,
   languages
-}
+})
 
 
 // TODO: replace `var` with `let` in the following variable declarations
@@ -62,6 +64,9 @@ let names = [];
 // });
 users.forEach(user => {
   return emails.push(user.email);
+//  or destructure
+//   let {email} = user;
+//   return emails.push(email);
 })
 
 
@@ -71,7 +76,8 @@ users.forEach(user => {
 users.forEach(user => {
   return names.push(user.name);
 })
-
+//or:
+// users.forEach(user => names.push(user.name));
 
 // TODO: replace `var` with `let` in the following declaration
 let developers = [];
@@ -83,13 +89,13 @@ users.forEach(function(user) {
   // const email = user.email;
   // const languages = user.languages;
   const {name,email, languages} = user;
-})
+
 
   // TODO: rewrite the assignment below to use template strings
 //   developers.push(name + '\'s email is ' + email + name + ' knows ' + languages.join(', '));
 // });
   developers.push(`${name}'s email is ${email}. ${name} knows ${languages.join(', ')}`);
-
+});
 
 // TODO: Use `let` for the following variable
 let list = '<ul>';
@@ -100,7 +106,8 @@ for(let developer of developers) {
 
   // TODO: rewrite the assignment below to use template strings
   list += `<li> ${developer} </li>`;
-  list += '</ul>';
 }
+  list += '</ul>';
+
 
 

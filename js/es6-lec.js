@@ -252,13 +252,40 @@ console.log(trail)
 // let distanceOfLoopTrail = trail.distance;
 
 //New way
-let myObject = {
-    movieName: 'the incredibles',
-    length: '1hr 43min'
-}
+// let myObject = {
+//     movieName: 'the incredibles',
+//     length: '1hr 43min',
+//     genre: 'kids'
+// }
+//
+// let {movieName, genre} = myObject;
+// console.log(movieName, genre);
+//
+let movies = [
+    {
+    title: 'Fast and the Furious',
+    description: 'Fast cars and Vin diesel'
+    },
+    {
+        title: 'The bee movie',
+        description: 'Movie about bees'
+    },
+    {
+        title: 'Zootopia',
+        description: 'Rodents vs predators'
+    }
+]
 
-let {movieName, length} = myObject;
-console.log(movieName, length);
+// function getMovieInfo(listOfMovies) {
+//     for(let movie of listOfMovies) {
+//         let {title, description} = movie;
+//         console.log(`The movie you selected is ${title}. Description: ${description}`)
+//     }
+// }
+//
+// getMovieInfo(movies);
+
+
 
 
 //old way obj destructuring
@@ -272,18 +299,31 @@ console.log(movieName, length);
 // console.log(describeTrail(trail))
 
 
-let describeTrail = trailObj => {
-    let {trailName, distance} = trailObj;
-    return trailName + ' is ' + distance + 'mi long';
-}
-
-console.log(describeTrail(trail))
-
-
+// let describeTrail = trailObj => {
+//     let {trailName, distance} = trailObj;
+//     return trailName + ' is ' + distance + 'mi long';
+// }
+//
+// console.log(describeTrail(trail))
 
 
+//Array destructuring
+//Old way
+var faf = movies[0];
+var beeMovie = movies[1]
+// console.log(faf, beeMovie);
+
+//New way
+// (assigning variables to objects in array)
+//cannot access second or third object, without listing all that come before. ex; cant let[z] - will return first object
+let [x, y, z] = movies;
+console.log(y)
 
 
+
+let [firstMovie, ...restOfMovies] = movies;
+console.log(firstMovie);
+console.log(restOfMovies)
 
 
 
