@@ -66,17 +66,40 @@ let trilinguals = users.filter(function (user) {
 
 
 
-//the following works but dont think it is correct
-const totalYears = users.reduce((acc, val) => {
-    // console.log(acc);
-    console.log(val)
-    let yearsExperience = acc + val.yearsOfExperience;
-    return yearsExperience;
+const totalYears = users.reduce((total, user) => {
+    return total + user.yearsOfExperience;
 }, 0)
 
 console.log(totalYears)
 
+const averageYears = totalYears / users.length;
+console.log(averageYears);
 
+const longestEmail = users.reduce((longest, current) =>{
+    if(current.email.length > longest.email.length){
+        return current;
+    } else {
+        return longest;
+    }
+})
+console.log(longestEmail)
+
+
+const usersNames = users.reduce((collection, current) => {
+    let allNames = `${collection} ${current.name}`;
+    return allNames;
+}, 'Your instructors are: ')
+
+// function userNames() {
+//     // const allNames = '';
+//     const userNames = users.reduce((collection, current) => {
+//         const allNames = collection.name + current.name;
+//         return allNames;
+//     })
+// }
+
+
+console.log(usersNames)
 
 
 
