@@ -138,26 +138,43 @@ const usersNames = users.reduce((collection, current) => {
 
 
 //instructor example
-let names = users.reduce(function (accumulator, user) {
-    //gives output of array of names.
-    accumulator.push(user.name);
-    return accumulator;
-}, [])
+// let names = users.reduce(function (accumulator, user) {
+//     //gives output of array of names.
+//     accumulator.push(user.name);
+//     return accumulator;
+// }, [])
+//
+// let namesNicelyJoined = users.reduce(function (accumulator, user,index, usersArray) {
+//     if(index === usersArray.length - 1){
+//         accumulator.push(user.name);
+//         let niceJoin = accumulator.join(', ');
+//         niceJoin += 'Your instructors are: ' + niceJoin + '.';
+//         return niceJoin;
+//     } else {
+//         accumulator.push(user.name);
+//         return accumulator;
+//     }
+// }, []);
+//
+// console.log(namesNicelyJoined)
 
-let namesNicelyJoined = users.reduce(function (accumulator, user,index, usersArray) {
-    if(index === usersArray.length - 1){
-        accumulator.push(user.name);
-        let niceJoin = accumulator.join(', ');
-        niceJoin += 'Your instructors are: ' + niceJoin + '.';
-        return niceJoin;
+//Bonus:::
+
+
+let uniqueArray = users.reduce(function (nameArray, user, index, array) {
+    nameArray.push(...user.languages); //Using the .push(...Array) separates the array when we push it rather than pushing it normally, and using .push(Array), where we would get an array inside of an array.
+    // nameArray = nameArray.concat(user.languages); //Using the concat method we can combine arrays, back to back.
+    // nameArray = [...nameArray,...user.languages];
+    // console.log(nameArray);
+    if (index === array.length - 1) {
+        // return getUniqueValues(nameArray);
+        return [... new Set(nameArray)].sort(); // Set creates a new array with the unique values
     } else {
-        accumulator.push(user.name);
-        return accumulator;
+        return nameArray;
+        // return getUniqueValues(nameArray);
     }
 }, []);
-
-console.log(namesNicelyJoined)
-
+console.log(uniqueArray);
 
 
 
