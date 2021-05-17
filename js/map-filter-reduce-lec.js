@@ -126,6 +126,76 @@ affordableWithTax.forEach(function (itemPrice) {
     $('#output').html(output)
 })
 
+//Reduce();
+//Have to feed two parameters; accumulator(total), individual, optional index          index starts at 1
+// this totals the affordable items from previuos function. prices.reduce to get all items
+let totalCost = affordableWithTax.reduce(function(total, itemPrice, index) {
+    console.log(`index  ${index}, total: ${total}, itemprice: ${itemPrice} `)
+    return total + itemPrice;
+})
+console.log(totalCost)
+
+//use array parameter: taking affordableWithTax as array parameter.
+let averagePrice = affordableWithTax.reduce(function (total, itemPrice, index, array) {
+    //each iteration add itemPrice to the total
+    total = total + itemPrice;
+    //if its our last iteration, we take total just calculated and divide by total items in the array
+    if(index === array.length - 1){
+        return total/array.length;
+    //    every other iteration through the array we just pass it the total
+    } else {
+        return total;
+    }
+})
+console.log(averagePrice.toFixed(2))
+
+//can pass second parameter - the place where the total starts.
+totalCost = prices.reduce(function (total, price) {
+    return total + price;
+}, 150)
+console.log(totalCost)
+
+
+const animals = ['dog', 'cat', 'bird', 'lizard', 'horse', 'squirrel', 'moose', 'mouse', 'fish', 'fox', 'eagle', 'fox', 'bird', 'cow', 'horse', 'dog', 'horse'];
+
+// the first value accumulator(total) will start with is an empty object. animal parameter represtents each item in the array, as it is passed to the reduce func iterating thru that array. So on its first pass, animal = 'dog', then 'cat', etc. Since total is empty object, on the first pass, this code sets a key called dog, and its value is 1: { dog: 1}. on next iteration: {cat: 1}
+let animalsCounted = animals.reduce(function (total, animal) {
+    if(!total[animal]){
+        total[animal] = 1;
+    } else {
+        total[animal] = total[animal] + 1;
+    }
+    return total;
+},{});
+
+console.log(animalsCounted)
+
+// Place each car mileage into an array
+const mileages = cars.reduce(function (accumulator, car) {
+    accumulator.push(car.mileage);
+    return accumulator;
+}, []);
+
+console.log(mileages)
+
+const highestMileage = cars.reduce(function (accumulator, car, index, carsArray) {
+    //if statement: last iteration thru cars array
+    if(index === carsArray.length -1){
+        accumulator.push(car.mileage);
+        //sort highest to lowest
+        accumulator.sort(function (a,b) {
+            return b - a;
+        });
+        //since sorted high to low, this will return the highest value
+        return accumulator[0];
+    //    create the array of every cars mileage each iteration
+    } else {
+        accumulator.push(car.mileage);
+        return accumulator;
+    }
+}, []);
+
+console.log(highestMileage)
 
 
 
