@@ -98,11 +98,46 @@ let patchOptions = {
 fetch("https://awake-faint-phalange.glitch.me/books/7", patchOptions).then(getBooks);
 
 
+// DELETE
+let deleteOptions = {
+    method: 'DELETE',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+};
+
+//below deletes book with id of 16, does not backfill the books: id = 15; id = 17...
+fetch("https://awake-faint-phalange.glitch.me/books/16", deleteOptions).then(getBooks);
+
+//Lesson code includes delete button
+
+$('#uniqueBooks').click(() => {
+    let inputVal = $('#id-to-delete').val();
+    fetch(`https://awake-faint-phalange.glitch.me/books/${inputVal}`, deleteOptions)
+        .then(getBooks)
+})
 
 getBooks();
 
 
 
+// let movieSearch = $('#movie-title').val();
+// fetch api
+// then json
+// then
+//     let moviePoster = data.Poster;
+//     let movieTitle = data.title;
+//     let movieDirector = data.Director;
+//     let movieRating = data.imdbRating.tofixed(0);
+//
+//     let newMovie = {
+//         poster: moviePoster,
+//         title: movieTitle,
+//         director: movieDirector,
+//         rating: movieRating
+//     }
+//
+//     let postOptions...
 
 
 
