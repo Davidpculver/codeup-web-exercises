@@ -16,6 +16,18 @@
 // }
 // fizzBuzz();
 
-const returnSeven = () => 7;
+// const returnSeven = () => 7;
+//
+// console.log(returnSeven());
 
-console.log(returnSeven());
+// function timesFive(num) {
+//     if(typeof num !== "number"){
+//         return 0;
+//     } else {
+//         return num * 5;
+//     }
+// }
+
+const timesFive = num => typeof num === "number" ? num * 5 : 0;
+
+console.log(timesFive(true));
