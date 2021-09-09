@@ -28,6 +28,18 @@
 //     }
 // }
 
-const timesFive = num => typeof num === "number" ? num * 5 : 0;
+// const timesFive = num => typeof num === "number" ? num * 5 : 0;
+//
+// console.log(timesFive(true));
 
-console.log(timesFive(true));
+const fruits = ["Banana", "Orange", "Apple", "Kiwi"];
+// fruits.pop();
+console.log(fruits);
+
+// fruits.splice(1, 2);
+// console.log(fruits);
+
+fruits.sort();
+console.log(fruits);
+fruits.reverse();
+console.log(fruits);
