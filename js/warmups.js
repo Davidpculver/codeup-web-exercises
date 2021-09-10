@@ -43,3 +43,21 @@ fruits.sort();
 console.log(fruits);
 fruits.reverse();
 console.log(fruits);
+
+
+
+function splitString(){
+    let testString = "I have a lovely bunch of coconuts";
+    let noLetterA = [];
+    let words = testString.split("");
+    for (let i = 0; i<words.length; i++){
+        if (words[i] !== "a"){
+            if (words[i] !== "o"){
+                noLetterA.push(words[i]);
+            }
+        }
+    }
+    console.log(noLetterA.join(''));
+}
+
+splitString();
