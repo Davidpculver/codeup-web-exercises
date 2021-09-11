@@ -32,32 +32,41 @@
 //
 // console.log(timesFive(true));
 
-const fruits = ["Banana", "Orange", "Apple", "Kiwi"];
-// fruits.pop();
-console.log(fruits);
-
-// fruits.splice(1, 2);
+// const fruits = ["Banana", "Orange", "Apple", "Kiwi"];
+// // fruits.pop();
 // console.log(fruits);
+//
+// // fruits.splice(1, 2);
+// // console.log(fruits);
+//
+// fruits.sort();
+// console.log(fruits);
+// fruits.reverse();
+// console.log(fruits);
+//
+//
+//
+// function splitString(){
+//     let testString = "I have a lovely bunch of coconuts";
+//     let noLetterA = [];
+//     let words = testString.split("");
+//     for (let i = 0; i<words.length; i++){
+//         if (words[i] !== "a"){
+//             if (words[i] !== "o"){
+//                 noLetterA.push(words[i]);
+//             }
+//         }
+//     }
+//     console.log(noLetterA.join(''));
+// }
+//
+// splitString();
 
-fruits.sort();
-console.log(fruits);
-fruits.reverse();
-console.log(fruits);
 
 
-
-function splitString(){
-    let testString = "I have a lovely bunch of coconuts";
-    let noLetterA = [];
-    let words = testString.split("");
-    for (let i = 0; i<words.length; i++){
-        if (words[i] !== "a"){
-            if (words[i] !== "o"){
-                noLetterA.push(words[i]);
-            }
-        }
-    }
-    console.log(noLetterA.join(''));
+function reverseSentence(sentence) {
+    console.log(sentence.split("").reverse().join(''));
 }
 
-splitString();
+reverseSentence("This sentence is reversed");
+
