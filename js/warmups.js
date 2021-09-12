@@ -70,3 +70,16 @@ function reverseSentence(sentence) {
 
 reverseSentence("This sentence is reversed");
 
+
+//sums the numbers together
+function sumOfNumber(num) {
+    let sum = 0;
+    let splitNum = num.toString().split("");
+    for (let i = 0; i < splitNum.length; i++){
+        sum += parseInt(splitNum[i]);
+    }
+    console.log(sum);
+}
+
+sumOfNumber(123456);
+
