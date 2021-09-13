@@ -83,3 +83,23 @@ function sumOfNumber(num) {
 
 sumOfNumber(123456);
 
+
+function multTable(x) {
+    for (let i = 1; i <= 10; i++){
+        console.log(`${x} x ${i} = ${(x * i)}`);
+    }
+}
+
+multTable(5);
+
+for (let i = 0; i <= 10; i++){
+    let ranNumb = Math.floor(Math.random() * 10) + 1;
+    if (ranNumb % 2 === 0){
+        console.log(`${ranNumb} is even.`)
+    } else {
+        console.log(`${ranNumb} is odd.`)
+    }
+
+    // console.log(ranNumb);
+}
+
