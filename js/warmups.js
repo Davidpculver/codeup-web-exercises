@@ -99,7 +99,22 @@ for (let i = 0; i <= 10; i++){
     } else {
         console.log(`${ranNumb} is odd.`)
     }
-
     // console.log(ranNumb);
 }
+
+function fizzbuzz(num) {
+    for (let i = 1; i <= num; i++){
+        if(i % 3 === 0 && i % 5 === 0) {
+            console.log("Fizzbuzz");
+        } else if (i % 3 === 0){
+            console.log("Fizz");
+        } else if (i % 5 === 0){
+            console.log("Buzz");
+        } else {
+            console.log(i)
+        }
+    }
+}
+
+fizzbuzz(50);
 
