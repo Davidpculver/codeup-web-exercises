@@ -121,13 +121,13 @@ function fibonacci(num) {
     let num1 = 0;
     let num2 = 1;
     let num3;
-    console.log(num1);
-    console.log(num2);
+    // console.log(num1);
+    // console.log(num2);
     for (let i = 0; i < num; i++) {
         num3 = num1 + num2;
         num1 = num2;
         num2 = num3;
-        console.log(num3);
+        // console.log(num3);
 
     }
     console.log(`The fibonacci of ${num} is ${num3}! `);
@@ -149,28 +149,38 @@ fibArray(6);
 
 function coins(num) {
     let counter = 0;
-    console.log(num);
-    for (let i = 0; i < num; i++) {
-        console.log(num);
+    // console.log(num);
+    // for (let i = 0; i < num; i++) {
+    //     // console.log(num);
+    //     if(num === 0){
+    //         console.log(counter);
+    //         break;
+    //     }
+    while (num > 0) {
         if (num % 5 === 0) {
-            counter += 1;
+            counter++;
             num -= 5;
             continue;
         } else if (num % 3 === 0) {
-            counter += 1;
+            counter++;
             num -= 3;
             continue;
-        } else if (num === 0) {
-            console.log(num);
-            console.log(counter);
         } else {
-            counter += 1;
+            counter++;
             num -= 1;
             continue;
-            console.log(num);
+            // console.log(num);
+            //     }
+            // }
         }
     }
+    return counter;
 }
 
-coins(10);
+console.log(coins(44));
 
+function square(num){
+    return num * num;
+}
+
+console.log(square(5));
